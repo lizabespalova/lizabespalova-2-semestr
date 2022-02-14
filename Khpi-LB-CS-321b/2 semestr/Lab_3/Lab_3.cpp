@@ -8,7 +8,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int size = 0;
-	cout << "Введите количество элементов массива:" << endl;
+	cout << "Введите количество элементов массива :" << endl;
 	cin >> size;
 	int* arr = new int[size];
 	Array(arr, size);
