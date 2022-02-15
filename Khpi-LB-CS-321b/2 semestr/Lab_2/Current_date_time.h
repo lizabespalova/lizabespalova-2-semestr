@@ -1,7 +1,5 @@
 #pragma once
 #include <iostream>
-//#include<chrono>
-//#include <time.h>
 #include <windows.h>
 #pragma warning (disable: 4996)
 #define M 5

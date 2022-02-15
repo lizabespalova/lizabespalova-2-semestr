@@ -1,47 +1,80 @@
 #include "Array.h"
-int Array(int* arr, int size) {
+int Array(int* pArr_A, int size, bool a) {
 	srand(time(NULL));
-	cout << "Ваш массив:" << endl;
-	for (int i = 0; i < size; i++) {
-		*(arr + i) = rand() % 20 - 10;
-		cout << *(arr + i) << setw(4);
+	if (a == true) {
+		cout << "Ваш массив:" << endl;
 	}
-	return  arr, size;
+		for (int i = 0; i < size; i++) {
+			*pArr_A = rand() % 20 - 10;
+			if (a == false) {
+				pArr_A++;
+			}
+			if (a == true) {
+				cout << *pArr_A << setw(4);
+				pArr_A++;
+			}
+	}
+	return  pArr_A, size;
 }
-int Negative_numbers(int* arr, int size) {
-	int count = 0;
+void Negative_numbers(int* pArr_A, int size) {
+	//абсолютный адрес
+	 // Запоминание начала массива А
+	 int* pArr_A_start = pArr_A;
+	int k = 0;
+	for (pArr_A  = pArr_A_start; pArr_A < pArr_A_start + size;++pArr_A)
+	{
+		if (*pArr_A < 0) k++;
+		
+	}
 	cout << endl;
-	cout << "Отрицательные элементы:" << endl;
-	int* mas = new int[count];
-	for (int i = 0; i < size; i++) {
-		if (*(arr + i) < 0) {
-			*(mas + i) = *(arr + i);
-			cout << *(mas + i) << setw(4);
+	cout << "Количество отрицательных элементов:" <<k;
+	
+	int* pArr_B = new int[k];
+	// Запоминание начала массива В
+	int* pArr_B_start = pArr_B;
+	for (pArr_A = pArr_A_start; pArr_A < pArr_A_start + size; ++pArr_A)
+	{
+		if (*pArr_A < 0)
+		{
+			// Копирование отрицательного элемента с А в В
+			*pArr_B = *pArr_A;
+			pArr_B++;
 		}
 	}
-	delete[]arr;
-	delete[] mas;
-	return 0;
+	cout << endl;
+	cout << "Переписанный массив с отрицательными элементами: \n";
+	pArr_B = pArr_B_start;
+	for (int i = 0; i < k; i++)
+	{
+		cout<< *pArr_B << setw(4);
+		pArr_B++;
+	}
+	//Указатель на начало массива
+	pArr_A = pArr_A_start;
+	pArr_B = pArr_B_start;
+	delete[] pArr_B;
 }
 
 
-int Replacement(int* arr, int size) {
+
+
+void Replacement(int* pArr_A, int size) {
+	//относительный адрес
 	cout << endl;
 	cout << "Максимальный элемент:" << endl;
-	int max = *arr;
+	int max = *pArr_A;
 	for (int i = 0; i < size;i++) {
-		if (max < *(arr + i)) {
-			max = *(arr + i);
+		if (max < *(pArr_A + i)) {
+			max = *(pArr_A + i);
 		}
 	}
 	cout << max << endl;
 	cout << "Замена положительных чисел массива на значение максимального элемента:" << endl;
 	for (int i = 0; i < size; i++) {
-		if (*(arr + i) > 0) {
-			*(arr + i) = max;
+		if (*(pArr_A + i) >= 0) {
+			*(pArr_A + i) = max;
 		}
-		cout << *(arr + i) << setw(4);
+		cout << *(pArr_A + i) << setw(4);
 	}
-	delete[]arr;
-	return 0;
+	delete[]pArr_A;
 }

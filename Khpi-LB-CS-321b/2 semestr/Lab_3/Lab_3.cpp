@@ -3,20 +3,20 @@
 
 #include "Array.h"
 
-int main()
+int main() 
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int size = 0;
 	cout << "Введите количество элементов массива:" << endl;
 	cin >> size;
-	int* arr = new int[size];
-	Array(arr, size);
+	int* pArr_A = new int[size];
+	Array(pArr_A, size, 1);
 # ifdef SOLVE
-	Negative_numbers(arr, size);
+	Negative_numbers(pArr_A, size);
 #endif 
 # ifdef DEBUG
-	Replacement(arr, size);
+	Replacement(pArr_A, size);
 #endif 
 }
 

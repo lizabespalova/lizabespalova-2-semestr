@@ -5,6 +5,6 @@
 #define SOLVE 
 #define DEBUG
 using namespace std;
-int Array(int* arr, int size);
-int Negative_numbers(int* arr, int size);
-int Replacement(int* arr, int size);
+int Array(int* pArr_A, int size, bool a);
+void Negative_numbers(int* pArr_A, int size);
+void Replacement(int* pArr_A, int size);
