@@ -17,7 +17,7 @@ int Array(int* pArr_A, int size, bool a) {
 	return  pArr_A, size;
 }
 void Negative_numbers(int* pArr_A, int size) {
-	//абсолютный адрес
+	//абсолютный адреc
 	 // Запоминание начала массива А
 	 int* pArr_A_start = pArr_A;
 	int k = 0;
