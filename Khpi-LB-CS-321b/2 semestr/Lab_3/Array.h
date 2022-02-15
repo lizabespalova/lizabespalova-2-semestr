@@ -2,7 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <iomanip>
-#define SOLVE 
+//#define SOLVE 
 #define DEBUG
 using namespace std;
 int Array(int* pArr_A, int size, bool a);
