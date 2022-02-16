@@ -8,14 +8,14 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define M 3
 using namespace std;
-struct data {
+struct Data {
 	char surname[15];
 	char initials[4];
 	short birthdate;
 	float salary;
 	int mas[10];
 };
-void input(struct data mm[]) {
+void input(Data mm[]) {
 	int n = M; //количество элементов в массиве
 	int i, j;// текущие индексы в массиве
 	for (n = 0; n < M; n++)
@@ -33,8 +33,8 @@ void input(struct data mm[]) {
 
 
 
-void sort(struct data mm[]) {
-	struct data inf;
+void sort(Data mm[]) {
+	Data inf;
 	int n = M;
 	int m;//индекс минимального элемента
 	for (int i = 0; i < n - 1; i++) {
@@ -67,7 +67,7 @@ void sort(struct data mm[]) {
 
 }
 
-void print(struct data mm[]) {
+void print(Data mm[]) {
 
 	int n = M; //количество элементов в массиве
 	int i;// текущие индексы в массиве
@@ -86,8 +86,8 @@ void print(struct data mm[]) {
 	printf("|января 2000|---------------------------------|\n");
 	printf("|-----------|---------------------------------|\n");
 }
-void random(struct data mm[]) {
-	struct data inf;
+void random(Data mm[]) {
+	Data inf;
 	for (int n = 0; n < M; n++) {
 		printf("%d. Ведите фамилию, инициалы >",
 			n + 1);
@@ -110,7 +110,7 @@ void random(struct data mm[]) {
 int main(void) {
 	setlocale(LC_ALL, "rus");
 	system("chcp 1251");
-	struct data spis[10];
+	Data mm[10];
 	int choice;
 	while (true) {
 		cout << "Выберите, как заполним таблицу(Таблица рассчитана на 3 человек):" << endl;
@@ -124,11 +124,11 @@ int main(void) {
 		}
 		if (choice == 1)
 		{
-			input(spis);
+			input(mm);
 		}
 		else if (choice == 2)
 		{
-			random(spis);
+			random(mm);
 		}
 		cout << "Выберите операцию которую будем проводить:" << endl;
 		cout << "(1)Сортировка" << endl;
@@ -137,11 +137,11 @@ int main(void) {
 		cin >> answer;
 		if (answer == 1)
 		{
-			sort(spis);
+			sort(mm);
 		}
 		else if (answer == 2)
 		{
-			print(spis);
+			print(mm);
 		}
 
 	}
