@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{94cf169c-a17b-411d-a558-b2fb3b007e3d}</ProjectGuid>
+    <ProjectGuid>{566094e5-ecb5-4d4b-be9b-452340e50d84}</ProjectGuid>
     <RootNamespace>Lab3A</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -138,6 +138,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab_3_A.cpp" />
+    <ClCompile Include="Pointers.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pointers.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

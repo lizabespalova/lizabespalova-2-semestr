@@ -3,8 +3,6 @@
 #include <iostream>
 #include <windows.h>
 #include<stdio.h>
-#include <string.h>
-#include <cstring>
 #define _CRT_SECURE_NO_WARNINGS
 #define M 3
 using namespace std;
@@ -116,12 +114,13 @@ int main(void) {
 		cout << "Выберите, как заполним таблицу(Таблица рассчитана на 3 человек):" << endl;
 		cout << "(1)Ввод с экрана" << endl;
 		cout << "(2)Случайным образом" << endl;
+		cout << "Выберите операцию которую будем проводить:" << endl;
+		cout << "(3)Сортировка" << endl;
+		cout << "(4)Печать" << endl;
 		cin >> choice;
+		int answer;
+		cin >> answer;
 		system("cls");
-		while (choice > 2) {
-			cout << "Такого действия нет, попробуйте еще" << endl;
-			cin >> choice;
-		}
 		if (choice == 1)
 		{
 			input(mm);
@@ -130,16 +129,11 @@ int main(void) {
 		{
 			random(mm);
 		}
-		cout << "Выберите операцию которую будем проводить:" << endl;
-		cout << "(1)Сортировка" << endl;
-		cout << "(2)Печать" << endl;
-		int answer;
-		cin >> answer;
-		if (answer == 1)
+		if (answer == 3)
 		{
 			sort(mm);
 		}
-		else if (answer == 2)
+		else if (answer == 4)
 		{
 			print(mm);
 		}
