@@ -2,10 +2,35 @@
 //
 
 #include "Current_date_time.h"
+#include "Struct.h"
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	PRINT_TYPE(2);
+	Data mm[10];
+   	while (true) {
+		
+#if PRINT_TYPE == 1
+		cout << "Заполните таблицу:" << endl;
+		Screen(mm);
+#elif  PRINT_TYPE == 2
+		cout << "Введите имя и инициалы, дальше таблица заполнится случайным образом:" << endl;
+		Random(mm);
+
+#endif
+		cout << "Выберите операцию которую будем проводить:" << endl;
+		cout << "(1)Сортировка" << endl;
+		cout << "(2)Печать" << endl;
+		int answer;
+		cin >> answer;
+		if (answer == 1)
+		{
+			Sort(mm);
+		}
+		else if (answer == 2)
+		{
+			Print(mm);
+		}
+	}
 }
 
 
