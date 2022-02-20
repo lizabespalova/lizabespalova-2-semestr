@@ -7,16 +7,18 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int size = 0;
-	cout << "Введите количество элементов массива:" << endl;
-	cin >> size;
-	int* pArr_A = new int[size];
-	Array(pArr_A, size, 1);
+	const int size =10000;
+	int  pArr_A[size];
+	int M;
+	cout << "Введите количество элементов массива(до 10000):" << endl;
+	cin >> M;
+
+	Array(pArr_A, M, 1);
 # ifdef SOLVE
-	Negative_numbers(pArr_A, size);
+	Negative_numbers(pArr_A, M);
 #endif 
 # ifdef DEBUG
-	Replacement(pArr_A, size);
+	Replacement(pArr_A, M);
 #endif 
 }
 
