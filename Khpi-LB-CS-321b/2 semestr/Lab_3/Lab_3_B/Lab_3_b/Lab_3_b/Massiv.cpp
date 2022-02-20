@@ -27,65 +27,78 @@ int drazmer(int* A, int size) {
 	return razmer;
 }
 
-void B(int* A,int*b, int size, int count) {
-	
-	cout << endl;
-	cout << "Отрицательный массив:" << endl;
-	
+void B(int* A,int*b, int size, int count, bool vivod) {
+	if (vivod == true) {
+		cout << endl;
+		cout << "Отрицательный массив:" << endl;
+	}
 	int nul = 0;
-
 	count = 0;
 	for (int i = 0; i < size; i++) {
 		if (*(A + i) < 0) {
 			*(b + count) = *(A + i);
 			nul++;
 			{ 
-				cout << *(b + count) << setw(4);
+				if (vivod == true) {
+					cout << *(b + count) << setw(4);
+				}
 			}
 			count++;
 		}
 	}
-	if (nul == 0) {
+	if (vivod == 0 && nul == 0) {
 		cout << "Отрицательных значений в массиве нет" << endl;
 	}
 
 }
-void C(int* A,int*c, int size, int razm) {
-	
+void C(int* A, int* c, int size, int razm, bool vivod) {
+	if (vivod == true) {
 		cout << endl;
-		 cout << "Положительный массив:" << endl; 
+		cout << "Положительный массив:" << endl;
+	}
 	int nul = 0;
 	razm = 0;
 	for (int i = 0; i < size; i++) {
 		if (*(A + i) > 0) {
 			*(c + razm) = *(A + i);
 			nul++;
-			{ cout << *(c + razm) << setw(4); }
+			if (vivod == true) {
+				cout << *(c + razm) << setw(4);
+			}
 			razm++;
 		}
-	}
-	if (nul == 0) {
-		cout << "Положительных значений  в массиве нет" << endl;
-	}
-
-}
-void D(int* A,int*d, int size, int razmer) {
-	
-		cout << endl;
-		 cout << "Нулевой массив:" << endl; 
-	razmer = 0;
-	int nul = 0;
-	for (int i = 0; i < size; i++) {
-		if (*(A + i) == 0) {
-			*(d + razmer) = *(A + i);
-			nul++;
-			cout << *(d + razmer) << setw(4);
-			razmer++;
+		if (vivod == true&& nul == 0) {
+			
+				cout << "Положительных значений  в массиве нет" << endl;
+			
 		}
-
 	}
-	if (nul == 0) {
-		{ cout << "Нулей в массиве нет" << endl; }
-	}
-
 }
+	
+	void D(int* A, int* d, int size, int razmer, bool vivod) {
+		if (vivod == true) {
+			cout << endl;
+			cout << "Нулевой массив:" << endl;
+		}
+		razmer = 0;
+		int nul = 0;
+		for (int i = 0; i < size; i++) {
+			if (*(A + i) == 0) {
+				*(d + razmer) = *(A + i);
+				nul++;
+				if (vivod == true) {
+					cout << *(d + razmer) << setw(4);
+				}
+				razmer++;
+			}
+
+		}
+		if (vivod == true && nul == 0) {
+			
+				cout << "Нулей в массиве нет" << endl;
+			
+		}
+	}
+
+
+		
