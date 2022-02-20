@@ -8,7 +8,7 @@ using namespace std;
 int bcount(int* A, int size);
 int crazm(int* A, int size);
 int drazmer(int*A, int size);
-int *B(int* A, int size, int count);
-int *C(int* A, int size, int razm);
-int *D(int* A, int size, int razmer);
+void B(int* A, int* b, int size, int count);
+void C(int* A, int* c, int size, int count);
+void D(int* A, int* d, int size, int count);
 

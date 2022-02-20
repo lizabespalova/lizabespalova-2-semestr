@@ -16,7 +16,7 @@ void Screen(Data mm[M]) {
 		scanf_s("%s", mm[n].surname, sizeof(mm[n].surname));
 		if (!strcmp(mm[n].surname, "***"))
 			break;
-		scanf_s("%s", &mm[n].initials, sizeof(mm[n].surname));
+		scanf_s("%s", &mm[n].initials, sizeof(mm[n].initials));
 		scanf_s("%hd", &mm[n].birthdate);
 		scanf_s("%f", &mm[n].salary);
 	}
@@ -43,7 +43,7 @@ void Random(Data mm[M]) {
 			n + 1);
 		scanf_s("%s", mm[n].surname, sizeof(mm[n].surname));
 		if (!strcmp(mm[n].surname, "***")) break;
-		scanf_s("%s", &mm[n].initials, sizeof(mm[n].surname));
+		scanf_s("%s", &mm[n].initials, sizeof(mm[n].initials));
 	}
 	
 	for (int i = 0; i < n;i++) {

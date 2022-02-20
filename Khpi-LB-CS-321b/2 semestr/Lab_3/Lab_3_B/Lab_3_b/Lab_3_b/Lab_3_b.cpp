@@ -20,22 +20,25 @@ int main()
 	int count = bcount(A, size);
 	int razm = crazm(A, size);
 	int razmer = drazmer(A, size);
-	int *b= B(A, size,count);
-	int *c= C(A, size, razm);
-	int *d =D(A, size, razmer);
+	int* b = new int[count];
+	int* c = new int[razm];
+	int* d = new int[razmer];
+    B(A, b, size, count);
+    C(A, c, size, razm);
+    D(A, d, size, razmer);
 	cout << endl;
 	cout <<"Переписанный массив"<< endl;
 	for (int i = 0; i < razmer; i++) {
 		*(A + i) = *(d + i);
 	}
 	delete[]d;
-	for (int i = razmer, j=0; i,j < count;i++, j++) {
+	for (int i = razmer, j=0; i<count,j < count;i++, j++) {
 		
 			*(A + i) = *(b + j);
 		
 	}
 	delete[]b;
-	for (int i = razmer+count, j=0; i,j < razm;i++, j++) {
+	for (int i = razmer+count, j=0; i<razm,j < razm;i++, j++) {
 		
 			*(A + i) = *(c + j);
 		

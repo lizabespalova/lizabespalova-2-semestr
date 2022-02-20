@@ -27,13 +27,12 @@ int drazmer(int* A, int size) {
 	return razmer;
 }
 
-int *B(int* A, int size, int count) {
+void B(int* A,int*b, int size, int count) {
 	
 	cout << endl;
 	cout << "Отрицательный массив:" << endl;
 	
 	int nul = 0;
-	int* b = new int[count];
 
 	count = 0;
 	for (int i = 0; i < size; i++) {
@@ -49,17 +48,14 @@ int *B(int* A, int size, int count) {
 	if (nul == 0) {
 		cout << "Отрицательных значений в массиве нет" << endl;
 	}
-	return b;
+
 }
-int *C(int* A, int size, int razm) {
+void C(int* A,int*c, int size, int razm) {
 	
 		cout << endl;
 		 cout << "Положительный массив:" << endl; 
-	
-		
-	int* c = new int[razm];
-	razm = 0;
 	int nul = 0;
+	razm = 0;
 	for (int i = 0; i < size; i++) {
 		if (*(A + i) > 0) {
 			*(c + razm) = *(A + i);
@@ -71,15 +67,12 @@ int *C(int* A, int size, int razm) {
 	if (nul == 0) {
 		cout << "Положительных значений  в массиве нет" << endl;
 	}
-	return c;
+
 }
-int* D(int* A, int size, int razmer) {
+void D(int* A,int*d, int size, int razmer) {
 	
 		cout << endl;
 		 cout << "Нулевой массив:" << endl; 
-	
-	
-	int* d = new int[razmer];
 	razmer = 0;
 	int nul = 0;
 	for (int i = 0; i < size; i++) {
@@ -94,5 +87,5 @@ int* D(int* A, int size, int razmer) {
 	if (nul == 0) {
 		{ cout << "Нулей в массиве нет" << endl; }
 	}
-	return d;
+
 }
