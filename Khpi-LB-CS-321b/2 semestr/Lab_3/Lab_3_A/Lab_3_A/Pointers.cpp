@@ -97,9 +97,9 @@ void Noadres(int* arr, int size) {
 	
 }
 void Maspoint() {
-	const int size = 1000;
+	const int size = 10000;
 	int M;
-	cout << "На сколько элементов создадим массив(не больше 1000)" << endl;
+	cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 	cin >> M;
 	int arr[size];
 	//заполнение массива
@@ -134,9 +134,9 @@ void Maspoint() {
 	
 }
 void Pointertopointer() {
-	const int size = 1000;
+	const int size = 10000;
 	int M;
-	cout << "На сколько элементов создадим массив(не больше 1000)" << endl;
+	cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 	cin >> M;
 	int arr[size];
 	//заполнение массива

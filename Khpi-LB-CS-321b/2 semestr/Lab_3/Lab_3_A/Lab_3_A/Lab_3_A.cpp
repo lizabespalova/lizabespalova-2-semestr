@@ -20,7 +20,7 @@ int main()
 		cin >> answer;
 
 		if (answer == 1) {
-			cout << "На сколько элементов создадим массив" << endl;
+			cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 			const int M=10000;
 			int size;
 			cin >> size;
@@ -29,7 +29,7 @@ int main()
 			
 		}
 		if (answer == 2) {
-			cout << "На сколько элементов создадим массив" << endl;
+			cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 			const int M = 10000;
 			int size;
 			cin >> size;
@@ -38,7 +38,7 @@ int main()
 			
 		}
 		if (answer == 3) {
-			cout << "На сколько элементов создадим массив" << endl;
+			cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 			const int M = 10000;
 			int size;
 			cin >> size;
@@ -53,9 +53,9 @@ int main()
 			Pointertopointer();
 		}
 		if (answer == 6) {
-			const int size = 1000;
+			const int size = 10000;
 			int M;
-			cout << "На сколько элементов создадим массив(не больше 1000)" << endl;
+			cout << "На сколько элементов создадим массив(не больше 10000)" << endl;
 			cin >> M;
 			int arr[size];
 			cout << "Ваш начальный массив:" << endl;
