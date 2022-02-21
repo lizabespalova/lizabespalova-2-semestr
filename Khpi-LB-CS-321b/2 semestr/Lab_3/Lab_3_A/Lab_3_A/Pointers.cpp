@@ -61,8 +61,7 @@ void Absolutniy(int* arr, int size) {
 		arr++;
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-	//очищение памяти
-	/*delete[]arr;*/
+	
 }
 void Noadres(int* arr, int size) {
 	//запоминаем начало массива
@@ -95,8 +94,7 @@ void Noadres(int* arr, int size) {
 		}
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-	//очищение памяти
-	//delete[]arr;
+	
 }
 void Maspoint() {
 	const int size = 1000;

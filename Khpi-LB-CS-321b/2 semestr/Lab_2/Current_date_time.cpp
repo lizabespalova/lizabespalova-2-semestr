@@ -45,7 +45,6 @@ void Random(Data mm[M]) {
 		if (!strcmp(mm[n].surname, "***")) break;
 		scanf_s("%s", &mm[n].initials, sizeof(mm[n].initials));
 	}
-	
 	for (int i = 0; i < n;i++) {
 		mm[i].birthdate = rand() % 20 + 1956;
 		mm[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));;

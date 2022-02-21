@@ -21,27 +21,30 @@ int main()
 
 		if (answer == 1) {
 			cout << "На сколько элементов создадим массив" << endl;
+			const int M=10000;
 			int size;
 			cin >> size;
-			int* arr = new int[size];
+			int arr [M];
 			Otnositelniy(arr, size);
-			delete[]arr;
+			
 		}
 		if (answer == 2) {
 			cout << "На сколько элементов создадим массив" << endl;
+			const int M = 10000;
 			int size;
 			cin >> size;
-			int* arr = new int[size];
+			int arr[M];
 			Absolutniy(arr, size);
-			delete[]arr;
+			
 		}
 		if (answer == 3) {
 			cout << "На сколько элементов создадим массив" << endl;
+			const int M = 10000;
 			int size;
 			cin >> size;
-			int* arr = new int[size];
+			int arr[M];
 			Noadres(arr, size);
-			delete[]arr;
+		
 		}
 		if (answer == 4) {
 			Maspoint();
