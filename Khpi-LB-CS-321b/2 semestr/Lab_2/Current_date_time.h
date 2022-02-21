@@ -6,8 +6,8 @@
 #include <iostream>
 #include <windows.h>
 #pragma warning (disable: 4996)
-#define M 3
-#define PRINT_TYPE 1
+#define M 5
+#define PRINT_TYPE 2
 
 using namespace std;
 void Screen(Data mm[]);
