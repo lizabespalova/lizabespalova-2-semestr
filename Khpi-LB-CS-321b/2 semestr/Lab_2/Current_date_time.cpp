@@ -48,7 +48,7 @@ void Random(Data mm[M]) {
 	for (int i = 0; i < n;i++) {
 		mm[i].birthdate = rand() % 20 + 1956;
 		mm[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));;
-	}
+	}                                           	 
 	for (int i = 0; i < n;i++) {
 		mm[15] = mm[2];
 		mm[2] = mm[0];

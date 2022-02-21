@@ -16,7 +16,7 @@ int Array(int* pArr_A, int M, bool a) {
 	}
 	return  pArr_A, M;
 }
-void Negative_numbers(int* pArr_A, int M) {
+void Negative_numbers(int* pArr_A, int M, int* pArr_B) {
 	 int* pArr_A_start = pArr_A;
 	int k = 0;
 	for (pArr_A  = pArr_A_start; pArr_A < pArr_A_start + M;++pArr_A)
@@ -27,9 +27,10 @@ void Negative_numbers(int* pArr_A, int M) {
 	cout << endl;
 	cout << "Количество отрицательных элементов:" <<k;
 	
-	int* pArr_B = new int[k];
+	
 	// Запоминание начала массива В
 	int* pArr_B_start = pArr_B;
+
 	for (pArr_A = pArr_A_start; pArr_A < pArr_A_start + M; ++pArr_A)
 	{
 		if (*pArr_A < 0)
@@ -47,10 +48,7 @@ void Negative_numbers(int* pArr_A, int M) {
 		cout<< *pArr_B << setw(4);
 		pArr_B++;
 	}
-	//Указатель на начало массива
-	pArr_A = pArr_A_start;
-	pArr_B = pArr_B_start;
-	delete[] pArr_B;
+
 }
 
 
