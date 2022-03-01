@@ -16,6 +16,7 @@ void Otnositelniy(int *arr, int size) {
 		}
 	}
 	cout << "Количество отрицательных элементов:" <<count<< endl;
+#ifdef DEBUG
 	//сумма отрицательных элементов
 	int sum = 0;
 	for (int i = 0; i < size; i++) {
@@ -24,7 +25,7 @@ void Otnositelniy(int *arr, int size) {
 		}
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-
+#endif // DEBUG
 }
 void Absolutniy(int* arr, int size) {
 	//запоминаем начало массива
@@ -53,6 +54,7 @@ void Absolutniy(int* arr, int size) {
 	//возврат указателя на начало
 	arr = arr_start;
 	//сумма отрицательных элементов 
+#ifdef DEBUG
 	int sum = 0;
 	for (int i = 0; i < size;i++) {
 		if (*arr < 0) {
@@ -61,7 +63,7 @@ void Absolutniy(int* arr, int size) {
 		arr++;
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-	
+#endif
 }
 void Noadres(int* arr, int size) {
 	//запоминаем начало массива
@@ -87,6 +89,7 @@ void Noadres(int* arr, int size) {
 	//возврат указателя на начало
 	arr = arr_start;
 	//сумма отрицательных элементов 
+#ifdef DEBUG
 	int sum = 0;
 	for (arr = arr_start;arr < arr_start + size;arr++) {
 		if (*arr < 0) {
@@ -94,7 +97,7 @@ void Noadres(int* arr, int size) {
 		}
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-	
+#endif
 }
 void Maspoint() {
 	const int size = 10000;
@@ -124,6 +127,7 @@ void Maspoint() {
 	}
 	cout << "Количество отрицательных элементов:" << count << endl;
 	//сумма отрицательных элементов 
+#ifdef DEBUG
 	int sum = 0;
 	for (int i = 0; i < M;i++) {
 		if (*parr[i] < 0) {
@@ -131,7 +135,7 @@ void Maspoint() {
 		}
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
-	
+#endif	
 }
 void Pointertopointer() {
 	const int size = 10000;
@@ -170,6 +174,7 @@ void Pointertopointer() {
 	}
 	pp = p;
 	//сумма отрицательных элементов 
+#ifdef DEBUG
 	int sum = 0;
 	for (int i = 0; i <M;i++) {
 		if (**pp < 0) {
@@ -178,13 +183,16 @@ void Pointertopointer() {
 		*(++(*pp));
 	}
 	cout << "Сумма отрицательных элементов:" << sum << endl;
+#endif
 }
 void Parametr(int *arr, int M, int*sum, int *count) {
 	//находим сумму и количество
 	for (int i = 0; i < M; i++) {
 		if (arr[i] < 0) {
 			*count+=1;
+#ifdef DEBUG
 			*sum += arr[i];
+#endif // DEBUG
 		}
 	}
 }

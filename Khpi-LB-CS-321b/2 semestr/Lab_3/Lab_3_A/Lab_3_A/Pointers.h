@@ -2,8 +2,9 @@
 #include <iostream>
 #include <windows.h>
 #include <iomanip>
-using namespace std;
 #include<windows.h>
+#define DEBUG
+using namespace std;
 void Otnositelniy(int *arr, int size);
 void Absolutniy(int* arr, int size);
 void Noadres(int *arr, int size);

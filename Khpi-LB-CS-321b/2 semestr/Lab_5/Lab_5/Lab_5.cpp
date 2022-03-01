@@ -1,29 +1,48 @@
-﻿// Lab_3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab_5.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include "Array.h"
 
-int main() 
+#include "Lab5.h"
+int main()
 {
-	while (true) {
-		SetConsoleCP(1251);
-		SetConsoleOutputCP(1251);
-		const int size = 10000;
-		int pArr_A[size];
-		int pArr_B[size];
-		int M;
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	cout << "Введите размерность матрицы:";
+	int N;
+	cin >> N;
+	int* A1;
+#ifdef DEBUG
+ 	A1 = new int[N * N];
+	//функция заполнения
+	*A1=Fill_Odnom(A1, N);
+	//вывод
+	cout << "Ваш массив:";
+	cout << endl;
+	for (int i = 0; i < N;i++) {
+		for (int j = 0; j < N; j++) {
+			cout << setw(10)<< *(A1 + (i * N + j)) ;
+		}
 		cout << endl;
-		cout << "Введите количество элементов массива(до 10000):" << endl;
-		cin >> M;
-
-		Array(pArr_A, M, 1);
-# ifdef SOLVE
-		Negative_numbers(pArr_A, M, pArr_B);
-#endif 
-# ifdef DEBUG
-		Replacement(pArr_A, M);
-#endif 
 	}
+	delete[]A1;
+#else DEBUG
+	//Создание массива
+	int** A2 = new int* [N];
+	for (int i = 0; i < N; i++)
+	{
+		A2[i] = new int[N];
+	}
+	//Заполнение массива
+	**A2 = Fill_Dvum(A2, N);
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++) {
+			cout << setw(10) << *(*(A2 + i) + j);
+		}
+		cout << endl;
+	}
+	delete[]A2;
+#endif DEBUG
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

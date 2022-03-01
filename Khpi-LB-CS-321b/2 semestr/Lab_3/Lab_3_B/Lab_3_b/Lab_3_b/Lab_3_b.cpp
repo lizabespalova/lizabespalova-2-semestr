@@ -8,11 +8,13 @@ int main()
 	SetConsoleOutputCP(1251);
 	int size = 0;
 	bool vivod;
+	const int M=10000;
 	while (true) {
+		srand(time(NULL));
 		cout << endl;
-		cout << "Введите количество элементов массива:" << endl;
+		cout << "Введите количество элементов массива(до 10000):" << endl;
 		cin >> size;
-		int* A = new int[size];
+		int A [M];
 		cout << "Ваш массив:" << endl;
 		for (int i = 0; i < size; i++)
 		{
@@ -20,6 +22,12 @@ int main()
 			cout << *(A + i) << setw(4);
 		}
 		cout << endl;
+		int count = bcount(A, size);
+		int razm = crazm(A, size);
+		int razmer = drazmer(A, size);
+		int b [M];
+		int c [M];
+		int d [M];
 #ifdef DEBUG
 
 		cout << "Введите, какое действие вы хотите увидеть:" << endl;
@@ -29,15 +37,6 @@ int main()
 		cout << "(4)Все действия сразу:" << endl;
 		int answer;
 		cin >> answer;
-#endif // DEBUG
-		srand(time(NULL));
-		int count = bcount(A, size);
-		int razm = crazm(A, size);
-		int razmer = drazmer(A, size);
-		int* b = new int[count];
-		int* c = new int[razm];
-		int* d = new int[razmer];
-#ifdef DEBUG
 		if (answer == 1) {
 			B(A, b, size, count, 1);
 		}
@@ -61,23 +60,23 @@ int main()
 		for (int i = 0; i < razmer; i++) {
 			*(A + i) = *(d + i);
 		}
-		delete[]d;
+	
 		for (int i = razmer, j = 0; i < count, j < count;i++, j++) {
 
 			*(A + i) = *(b + j);
 
 		}
-		delete[]b;
+
 		for (int i = razmer + count, j = 0; i < razm, j < razm;i++, j++) {
 
 			*(A + i) = *(c + j);
 
 		}
-		delete[]c;
+		
 		for (int i = 0;i < size;i++) {
 			cout << *(A + i) << setw(4);
 		}
-		delete[]A;
+		
 	
 	}
 }
