@@ -12,7 +12,8 @@ int main()
 		cout << endl;
 		cout << "На сколько элементов создадим массив?" << endl;
 		cin >> N;
-		int* A = Fill(N);
+		int* A = new int[N];
+		 Fill(A, N);
 		cout << "Ваш массив:" << endl;
 		for (int i = 0; i < N;i++) {
 			cout << setw(4) << *(A + i);

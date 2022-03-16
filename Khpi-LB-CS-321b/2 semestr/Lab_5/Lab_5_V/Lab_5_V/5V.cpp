@@ -1,10 +1,9 @@
 #include "5V.h"
-int*Fill(int N) {
-    int* A = new int[N];
+void Fill(int*A, int N) {
 	for (int i = 0; i < N; i++) {
 		*(A + i) = rand() % 100 + 1;
 	}
-    return A;
+
 }
 int Pysirok(int*A, int N) {
     for (int i = 0;i < N;i++) {
