@@ -14,7 +14,7 @@ int main()
 #ifdef DEBUG
  	A1 = new int[N * N];
 	//функция заполнения
-	*A1=Fill_Odnom(A1, N);
+	Fill_Odnom(A1, N);
 	//вывод
 	cout << "Ваш массив:";
 	cout << endl;
@@ -33,7 +33,7 @@ int main()
 		A2[i] = new int[N];
 	}
 	//Заполнение массива
-	**A2 = Fill_Dvum(A2, N);
+	 Fill_Dvum(A2, N);
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < N; j++) {

@@ -1,5 +1,5 @@
 #include "Lab5.h"
-int  Fill_Odnom(int*A1, int N) {
+void  Fill_Odnom(int*A1, int N) {
 	int num = 0;
 	int prib = 1;
 	int delta = 0;
@@ -38,9 +38,9 @@ int  Fill_Odnom(int*A1, int N) {
 
 	}
 	
-	return *A1;
+
 }
-int Fill_Dvum(int** A2, int N) {
+void Fill_Dvum(int** A2, int N) {
 	int prib = 1;
 
 
@@ -75,5 +75,5 @@ int Fill_Dvum(int** A2, int N) {
 		}
 
 	}
-	return **A2;
+	
 }
