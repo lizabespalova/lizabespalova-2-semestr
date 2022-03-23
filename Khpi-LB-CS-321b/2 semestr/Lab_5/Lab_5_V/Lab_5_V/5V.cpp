@@ -5,7 +5,7 @@ void Fill(int*A, int N) {
 	}
 
 }
-int Pysirok(int*A, int N) {
+void Pysirok(int*A, int N) {
     for (int i = 0;i < N;i++) {
         for (int j = i + 1; j < N; j++) {
             if (*(A + i) > *(A + j)) {
@@ -13,9 +13,9 @@ int Pysirok(int*A, int N) {
             }
         }
     }
-    return *A;
+    
 }
-int Choara(int*A, int N) {
+void Choara(int*A, int N) {
     int i, j; 
     int lb, ub; 
 
@@ -70,9 +70,9 @@ int Choara(int*A, int N) {
             }
         } while (lb < ub);  
     } while (tekpoz != 0);  
-    return *A;
+ 
 }
-int Gnom(int*A, int N) {
+void Gnom(int*A, int N) {
     int i = 0;
     int tmp = 0;
     while (i < N) {
@@ -86,9 +86,9 @@ int Gnom(int*A, int N) {
 
         }
     }
-    return *A;
+   
 }
 //Функция с параметром указателя на функцию
-int Function(int* A, int N, int(*p)(int* A, int N)) {
-    return p(A, N);
-}
+//void Function(int* A, int N, int(*p)(int* A, int N)) {
+//   p(A, N);
+//}

@@ -8,7 +8,7 @@ int main()
 	setlocale(LC_ALL,"ru");
 	while (true) {
 		int N;
-		int(*p)(int *A, int N);//Огласили указатель на функцию
+		void(*p)(int *A, int N);//Огласили указатель на функцию
 		cout << endl;
 		cout << "На сколько элементов создадим массив?" << endl;
 		cin >> N;
@@ -27,24 +27,24 @@ int main()
 		int answer;
 		cin >> answer;
 		if (answer == 1) {
-		   p=Pysirok;
-		   Function(A, N, p);
+			p = Pysirok; p( A,  N);
+		  /* Function(A, N, p);*/
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}
 			cout << endl;
 		}
 		else if (answer == 2) {
-			p=Choara;
-			Function(A, N, p);
+			p=Choara; p(A, N);
+		/*	Function(A, N, p);*/
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}
 			cout << endl;
 		}
 		else if (answer == 3) {
-			p=Gnom;
-			Function(A, N, p);
+			p=Gnom; p(A, N);
+		/*	Function(A, N, p);*/
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}

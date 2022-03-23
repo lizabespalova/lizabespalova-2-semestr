@@ -17,7 +17,7 @@ int main()
 	int sum= 0;
 	long int proizv = 1;
 	Fill(A, N);
-	*result=Function(A, min, max, result,&sum, &proizv,N);
+    Function(A, min, max, result,&sum, &proizv,N);
 	cout << endl;
 	cout << "Ваш конечный массив" << endl;
 	for (int i = 0; i < 2; i++) {

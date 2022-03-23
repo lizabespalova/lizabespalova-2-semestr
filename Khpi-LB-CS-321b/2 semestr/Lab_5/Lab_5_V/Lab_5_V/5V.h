@@ -5,7 +5,7 @@
 #define DEBUG
 using namespace std;
 void Fill( int*A, int N);
-int Pysirok(int*A, int N);
-int Choara(int*A, int N);
-int Gnom(int* A, int N);
-int Function(int* A, int N, int(*p)(int* A, int N));
+void Pysirok(int*A, int N);
+void Choara(int*A, int N);
+void Gnom(int* A, int N);
+//void Function(int* A, int N, int(*p)(int* A, int N));

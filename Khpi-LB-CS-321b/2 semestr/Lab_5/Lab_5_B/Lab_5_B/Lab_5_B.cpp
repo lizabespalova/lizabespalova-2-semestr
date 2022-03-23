@@ -9,7 +9,7 @@ int main()
 	SetConsoleOutputCP(1251);
 	while (true) {
 		cout << "Введите количество элементов массива:" << endl;
-		int (*p)(int* A, int N, int* sum, int* proizv);
+		void(*p)(int* A, int N, int* sum, int* proizv);
 		int N;
 		cin >> N;
 		int* A = new int[N];
@@ -21,11 +21,11 @@ int main()
 		int sum =0;
 		int proizv=1;
 		p = Summa;
-		Function(A, N, &sum, &proizv,p);
+		p(A, N, &sum, &proizv);
 		cout << endl;
 		cout << "Ваша сумма:" << sum << endl;
 		p = Proizvedenie;
-		Function(A,N,&sum,&proizv,p);
+		p(A,N,&sum,&proizv);
 		cout << "Вашe произведение:" << proizv << endl;
 		delete[] A;
 		cout << endl;
