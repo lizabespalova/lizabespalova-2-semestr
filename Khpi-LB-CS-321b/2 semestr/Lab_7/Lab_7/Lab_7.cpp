@@ -1,28 +1,39 @@
-﻿// Lab_6.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab_7.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-#include"6.h"
+#include "7.h"
+#include "struct7.h"
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+	srand(time(NULL));
+		Data mm[10];
+		while (true) {
 
-int main(void) {
-    setlocale(LC_ALL, "ru");
-    system("chcp 1251");
-    while (true) {
-        int n;
-        cout << "Введите количество символов строки" << endl;
-        cin >> n;
-        cin.get();  // пропускаем символ '\n' который остался от ввода n
-        char* s1 =new char[n+1];
-        char* s2=new char[n+1]; /* источник и результат */
-        cout << "Введите строку" << endl;
-        cin.getline(s1,n+1);
-        Word(s1, s2);
-        for (int i = 0; i < strlen(s2); i++) {
-            cout << *(s2+i) ;
-        }
-        cout << endl;
-        delete[]s1;
-        delete[]s2;
-    }
-}
+#if PRINT_TYPE == 1
+			cout << "Заполните таблицу:" << endl;
+			Screen(mm);
+#endif
+#if  PRINT_TYPE == 2
+			cout << "Введите имя и инициалы, дальше таблица заполнится случайным образом:" << endl;
+			Random(mm);
+			cout << "Выберите операцию которую будем проводить:" << endl;
+			cout << "(1)Сортировка" << endl;
+			cout << "(2)Печать" << endl;
+			int answer;
+			cin >> answer;
+			if (answer == 1)
+			{
+				Sort(mm);
+			}
+			else if (answer == 2)
+			{
+				Print(mm);
+			}
+#endif
+		}
+	}
+
 
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
