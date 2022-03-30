@@ -7,31 +7,115 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 	srand(time(NULL));
+   
 		Data mm[10];
 		while (true) {
+			
+			cout << "Выберите действие:" << endl;
+			cout << "(1)Ввод с экрана и запись в файл" << endl;
+			cout << "(2)Ввод случайно и запись в файл" << endl;
+			cout << "(3)Добавить запись в конец файла" << endl;
+			cout << "(4)Добавить запись в начало файла" << endl;
+			cout << "(5)Печать одной из записи файла по номеру" << endl;
+			cout << "(6)Чтение всех структур последовательно из файла и печать" << endl;
+			cout << "(7)Выход" << endl;
+			int resp=0;
+			cin >> resp;
+			if (resp == 1) {
+				cout << "Заполните таблицу:" << endl;
+				Screen(mm);
+				cout << "Выберите операцию которую будем проводить:" << endl;
+				cout << "(1)Сортировка" << endl;
+				cout << "(2)Печать" << endl;
+				int answer;
+				cin >> answer;
+				if (answer == 1)
+				{
+					Sort(mm);
+				}
+				else if (answer == 2)
+				{
+					Print(mm);
+				}
+			}
+			if (resp == 2) {
+				cout << "Таблица заполнится случайным образом:" << endl;
+				Random(mm);
+				cout << "Выберите операцию которую будем проводить:" << endl;
+				cout << "(1)Сортировка" << endl;
+				cout << "(2)Печать" << endl;
+				int answer;
+				cin >> answer;
+				if (answer == 1)
+				{
+					Sort(mm);
+				}
+				else if (answer == 2)
+				{
+					Print(mm);
+				}
+			}
+			if (resp == 3) {
+				cout << "Выберите, как заполним:" << endl;
+				cout << "(1)Ввод с экрана" << endl;
+				cout << "(2)Ввод случайно" << endl;
+				int respond = 0;
+				cin >> respond;
+				if (respond == 1) {
+					cout << "Заполните таблицу:" << endl;
+					Screen3(mm);
+				}
+				else if (respond == 2) {
+					cout << "Таблица заполнится случайным образом:" << endl;
+					Random(mm);
+				}
+				cout << "Выберите операцию которую будем проводить:" << endl;
+				cout << "(1)Сортировка" << endl;
+				cout << "(2)Печать" << endl;
+				int answ;
+				cin >> answ;
+				if (answ == 1) {
+					Sort3(mm);
+				}
+				else if (answ == 2) {
+					Print3(mm);
+				}
+			}
+				if (resp == 4) {
+					cout << "Выберите, как заполним:" << endl;
+					cout << "(1)Ввод с экрана" << endl;
+					cout << "(2)Ввод случайно" << endl;
+					int respond = 0;
+					cin >> respond;
+					if (respond == 1) {
+						cout << "Заполните таблицу:" << endl;
+						Screen4(mm);
+					}
+					else if (respond == 2) {
+						cout << "Таблица заполнится случайным образом:" << endl;
+						Random(mm);
+					}
+					cout << "Выберите операцию которую будем проводить:" << endl;
+					cout << "(1)Сортировка" << endl;
+					cout << "(2)Печать" << endl;
+					int answ;
+					cin >> answ;
+					if (answ == 1) {
+						Sort4(mm);
+					}
+					else if (answ == 2) {
+						Print4(mm);
+					}
+				}
+				if (resp == 5) {
 
-#if PRINT_TYPE == 1
-			cout << "Заполните таблицу:" << endl;
-			Screen(mm);
-#endif
-#if  PRINT_TYPE == 2
-			cout << "Введите имя и инициалы, дальше таблица заполнится случайным образом:" << endl;
-			Random(mm);
-			cout << "Выберите операцию которую будем проводить:" << endl;
-			cout << "(1)Сортировка" << endl;
-			cout << "(2)Печать" << endl;
-			int answer;
-			cin >> answer;
-			if (answer == 1)
-			{
-				Sort(mm);
+					cout << "Выберите номер печати" << endl;
+					int nomer;
+					cin >> nomer;
+					int str = nomer * M * resp;
+					Print5(mm, str);
+				}
 			}
-			else if (answer == 2)
-			{
-				Print(mm);
-			}
-#endif
-		}
 	}
 
 

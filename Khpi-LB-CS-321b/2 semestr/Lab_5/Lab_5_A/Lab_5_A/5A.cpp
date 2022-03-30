@@ -7,7 +7,7 @@ void Fill(int** A, int N) {
 	}
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			*(*(A + i) + j) = rand() % 20 + 1;
+			*(*(A + i) + j) = rand() % 10 + 1;
 			cout <<setw(4) <<*(*(A + i) + j) ;
 		}
 		cout << endl;

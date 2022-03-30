@@ -28,7 +28,7 @@ int main()
 		cin >> answer;
 		if (answer == 1) {
 			p = Pysirok; p( A,  N);
-		  /* Function(A, N, p);*/
+		 
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}
@@ -36,7 +36,7 @@ int main()
 		}
 		else if (answer == 2) {
 			p=Choara; p(A, N);
-		/*	Function(A, N, p);*/
+		
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}
@@ -44,7 +44,7 @@ int main()
 		}
 		else if (answer == 3) {
 			p=Gnom; p(A, N);
-		/*	Function(A, N, p);*/
+		
 			for (int i = 0; i < N;i++) {
 				cout << setw(4) << *(A + i);
 			}

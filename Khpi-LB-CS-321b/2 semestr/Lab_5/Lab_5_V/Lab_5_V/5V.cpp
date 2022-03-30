@@ -88,7 +88,3 @@ void Gnom(int*A, int N) {
     }
    
 }
-//Функция с параметром указателя на функцию
-//void Function(int* A, int N, int(*p)(int* A, int N)) {
-//   p(A, N);
-//}

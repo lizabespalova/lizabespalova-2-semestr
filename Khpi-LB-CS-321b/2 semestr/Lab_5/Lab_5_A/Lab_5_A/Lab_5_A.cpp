@@ -8,26 +8,29 @@ int main()
 	SetConsoleOutputCP(1251);
 	srand(time(NULL));
 	int N;
-	cout << "На сколько элементов создадим массив?" << endl;
-	cin >> N;
-	int** A  = new int* [N];
-	int* min = new int[N];
-	int* max = new int[N];
-	int* result = new int[2];
-	int sum= 0;
-	long int proizv = 1;
-	Fill(A, N);
-    Function(A, min, max, result,&sum, &proizv,N);
-	cout << endl;
-	cout << "Ваш конечный массив" << endl;
-	for (int i = 0; i < 2; i++) {
-		cout  << *(result + i);
-		cout << "\t";
+	while (true) {
+		cout << "На сколько элементов создадим массив?" << endl;
+		cin >> N;
+		int** A = new int* [N];
+		int* min = new int[N];
+		int* max = new int[N];
+		int* result = new int[2];
+		int sum = 0;
+		long  int proizv = 1;
+		Fill(A, N);
+		Function(A, min, max, result, &sum, &proizv, N);
+		cout << endl;
+		cout << "Ваш конечный массив" << endl;
+		for (int i = 0; i < 2; i++) {
+			cout << *(result + i);
+			cout << "\t";
+		}
+		delete[]A;
+		delete[]min;
+		delete[]max;
+		delete[]result;
+		cout << endl;
 	}
-	delete[]A;
-	delete[]min;
-	delete[]max;
-	delete[]result;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
