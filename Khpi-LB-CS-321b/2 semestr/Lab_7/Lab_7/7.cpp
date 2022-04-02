@@ -931,16 +931,33 @@ void Print5(Data mm[], int nomer) {
 	char* seek = new char[M * 100];
 	//бинарный файл создани
 	fopen_s(&f, "t.txt", "wb");
-	fseek(f, nomer * sizeof(int), SEEK_SET);
-	
-	for (int i = 0;i < n;i++) {
-		fread(&seek, sizeof(Data), 1, f);
-		/*fread(&mm[i].name, sizeof(Data), 1, f);
-		fread(&mm[i].initials, sizeof(Data), 1, f);
-		fread(&mm[i].init, sizeof(Data), 1, f);
-		fread(&mm[i].birthdate, sizeof(Data), 1, f);
-		fread(&mm[i].salary, sizeof(Data), 1, f);*/
-	}
+	/*fseek(f, nomer * sizeof(int), SEEK_SET);*/
+	char shelf1[500], shelf2[1000];
+	int k, m;
+	k = fread(shelf1, sizeof(char), 500, f);
+	fclose(f);
+
+	f = fopen("t.txt", "wb");
+	m = fread(shelf2, sizeof(char), 1000, f);
+	fclose(f);
+
+	shelf1[k] = '\0';
+	shelf2[m] = '\n';
+	shelf2[m + 1] = '\0';
+
+	f = fopen("t.txt", "wb");
+	fwrite(strcat(shelf2, shelf1),
+		sizeof(char), k + m, f);
+	fclose(f);
+
+	//for (int i = 0;i < n;i++) {
+	//	fread(&seek, sizeof(Data), 1, f);
+	//	/*fread(&mm[i].name, sizeof(Data), 1, f);
+	//	fread(&mm[i].initials, sizeof(Data), 1, f);
+	//	fread(&mm[i].init, sizeof(Data), 1, f);
+	//	fread(&mm[i].birthdate, sizeof(Data), 1, f);
+	//	fread(&mm[i].salary, sizeof(Data), 1, f);*/
+	//}
 	
 	int i;// текущие индексы в массиве
 
