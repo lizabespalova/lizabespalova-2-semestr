@@ -1,7 +1,7 @@
 #include "7A.h"
 
 void File_work1(int*mas1) {
-	//работа с файл 1
+	//работа с файлом 1
 	FILE* f1;
 	fopen_s(&f1, "f1.txt", "wb");
 	if (f1 == NULL) {
@@ -40,9 +40,12 @@ void File_work2(int* mas1, int* mas2) {
 	}
 	else {
 			for (int i = 0; i < m;i++) {
-				fread(&*(mas2+i), sizeof(int),m, f1);
+			
+				fscanf_s(f1, "%2d", &*(mas2 + i));
+				fprintf(f2, "%2d", *(mas2 + i));
+				fprintf(f2, "\t");
 		}
-			fwrite(mas2, sizeof(int)-1, m, f2);	
+			
 			rewind(f1);
 			for (int i = 0; i < m;i++) {
 				fscanf_s(f1, "%2d", &*(mas2 + i));
@@ -66,7 +69,7 @@ void File_work3(int*mas1,int* mas2) {
 	else {
 		fprintf(f2, "\n");
 		for (int i = 0; i < m; i++) {
-			fscanf_s(f2, "%2d", &x);
+			fscanf_s(f2, "%d", &x);
 			fprintf(f2, "%d", x);
 			cout << x <<"\t";
 		}

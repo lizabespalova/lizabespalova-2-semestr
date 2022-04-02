@@ -1,21 +1,18 @@
-﻿// Lab_7_A.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// Lab_7_B.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include "7A.h"
+#include "7B.h"
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	srand(time(NULL));
 	int* mas1 = new int[m];
 	int* mas2 = new int[m];
 	for (int i = 0;i < m;i++) {
 		*(mas1 + i) = rand() % 10 + 1;
 	}
 	File_work1(mas1);
-	File_work2(mas1, mas2);
-	File_work3(mas1, mas2);
-	delete[]mas1;
-	delete[]mas2;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
