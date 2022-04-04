@@ -7,12 +7,32 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	srand(time(NULL));
+	FILE* f1;
+	int sum=0;
 	int* mas1 = new int[m];
 	int* mas2 = new int[m];
 	for (int i = 0;i < m;i++) {
-		*(mas1 + i) = rand() % 10 + 1;
+		*(mas1 + i) = rand() % 20 - 10;
 	}
 	File_work1(mas1);
+	File_work2(mas1, mas2);
+	File_work3(mas2, &sum);
+#ifdef DEBUG
+	fopen_s(&f1, "f1.txt", "wb");
+	fprintf(f1, "\nМассив 1:\n");
+	for (int i = 0; i < m; i++) {
+		fprintf(f1, "%3d", *(mas1 + i));
+	}
+	fprintf(f1, "\nМассив 2:\n");
+	for (int i = 0; i < m; i++) {
+		fprintf(f1, "%3d", *(mas2 + i));
+	}
+	fprintf(f1, "\nВаша сумма:\n");
+	fprintf(f1, "%3d", sum);
+	fclose(f1);
+#endif // DEBUG	
+	delete[]mas1;
+	delete[]mas2;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

@@ -3,7 +3,7 @@
 void File_work1(int*mas1) {
 	//работа с файлом 1
 	FILE* f1;
-	fopen_s(&f1, "f1.txt", "wb");
+	fopen_s(&f1, "f1.txt", "w");
 	if (f1 == NULL) {
 		puts("Ошибка при открытии файла");
 		exit(0);
@@ -28,8 +28,8 @@ void File_work2(int* mas1, int* mas2) {
 	cout << "Массив 2:" << endl;
 	FILE* f1;
 	FILE* f2;
-	fopen_s(&f1, "f1.txt", "rb");
-	fopen_s(&f2, "f2.txt", "wb");
+	fopen_s(&f1, "f1.txt", "r");
+	fopen_s(&f2, "f2.txt", "w");
 	if (f2 == NULL) {
 		puts("Ошибка при открытии файла");
 		exit(0);
@@ -61,7 +61,7 @@ void File_work3(int*mas1,int* mas2) {
 	FILE* f2;
 	int x;
 	cout << "Вывод через x:" << endl;
-	fopen_s(&f2, "f2.txt", "rb");
+	fopen_s(&f2, "f2.txt", "r");
 	if (f2 == NULL) {
 		puts("Ошибка при открытии файла");
 		exit(0);
