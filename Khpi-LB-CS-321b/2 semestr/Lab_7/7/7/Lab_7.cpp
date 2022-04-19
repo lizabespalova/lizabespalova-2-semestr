@@ -1,35 +1,42 @@
 ﻿#include "7.h"
 #include "struct7.h"
-void Screen(Data mm[],int count, int schet) {
-
+void Screen(int count, int schet) {
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
 #endif
+
 	int n = M; 
 	Data inf;
+	Data info;
 	FILE* f1;
 	fopen_s(&f1, "t.txt", "w");
-
 	if (f1 == NULL) {
 		puts("Ошибка открытия файла");
 		exit(0);
 	}
 	else {
+
 		for (int i = n * count; i < n * count + n;i++)
 		{
 			printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
 				n + 1);
-			fscanf_s(f1, "%s", mm[i].surname, sizeof(mm[i].surname));
-			scanf_s("%s", mm[i].surname, sizeof(mm[i].surname));
-			fscanf_s(f1, "%s", mm[i].initials, sizeof(mm[i].initials));
-			scanf_s("%s", mm[i].initials, sizeof(mm[i].initials));
-			fscanf_s(f1, "%hd", &mm[i].birthdate);
-			scanf_s("%hd", &mm[i].birthdate);
-			fscanf_s(f1, "%f", &mm[i].salary);
-			scanf_s("%f", &mm[i].salary);
+			scanf_s("%s", inf.surname, sizeof(inf.surname));
+			fprintf(f1, "%s", inf.surname);
+			fprintf(f1, " ");
+			scanf_s("%s", inf.initials, sizeof(inf.initials));
+			fprintf(f1, "%s", inf.initials);
+			fprintf(f1, " ");
+			scanf_s("%hd", &inf.birthdate);
+			fprintf(f1, "%hd", inf.birthdate);
+			fprintf(f1, " ");
+			scanf_s("%f", &inf.salary);
+			fprintf(f1, "%f", inf.salary);
+			fprintf(f1, " ");
+			fprintf(f1, "\n");
 		}
-
+		fclose(f1);
+		fopen_s(&f1, "t.txt", "r");
 		cout << "Действие:" << endl;
 		cout << "(1)Сортировка" << endl;
 		cout << "(2)Печать" << endl;
@@ -38,7 +45,7 @@ void Screen(Data mm[],int count, int schet) {
 		cin >> ans;
 		if (ans == 1)
 		{
-			
+
 			printf("-----------------------------------------------\n");
 			printf("|                  Отдел кадров               |\n");
 			printf("|---------------------------------------------|\n");
@@ -50,10 +57,15 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
 			for (int i = n * count; i < n * count + n;i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 
 			}
 
@@ -69,15 +81,17 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|новлен на 1|---------------------------------|\n");
 			fprintf(f1, "|января 2000|---------------------------------|\n");
 			fprintf(f1, "|-----------|---------------------------------|\n");
+			Data mm[10];
 			for (int i = n * count; i < n * count + n;i++) {
-				m = i; 
-				for (int j = i + 1; j < n*count+n; j++)
 
-					if (strcmp(mm[m].surname, mm[j].surname) > 0) m = j;
+
+				for (int j = i + 1; j < n * count + n;j++)
+
+					if (strcmp(inf.surname, inf.surname) > 0) m = j;
 				if (m > i) {
-					inf = mm[i];
+					info = mm[i];
 					mm[i] = mm[m];
-					mm[m] = inf;
+					mm[m] = info;
 				}
 			}
 
@@ -92,10 +106,16 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
 			for (int i = n * count; i < n * count + n;i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
+
 			}
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
@@ -109,11 +129,11 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|новлен на 1|---------------------------------|\n");
 			fprintf(f1, "|января 2000|---------------------------------|\n");
 			fprintf(f1, "|-----------|---------------------------------|\n");
-			
+
 		}
 		else if (ans == 2)
 		{
-			
+
 			printf("-----------------------------------------------\n");
 			printf("|                  Отдел кадров               |\n");
 			printf("|---------------------------------------------|\n");
@@ -125,11 +145,15 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
 			for (int i = n * count; i < n * count + n;i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 			}
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
@@ -143,7 +167,7 @@ void Screen(Data mm[],int count, int schet) {
 			fprintf(f1, "|новлен на 1|---------------------------------|\n");
 			fprintf(f1, "|января 2000|---------------------------------|\n");
 			fprintf(f1, "|-----------|---------------------------------|\n");
-			
+
 		}
 	
 	}
@@ -155,41 +179,58 @@ void Screen(Data mm[],int count, int schet) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Random(Data mm[], int count, int schet) {
-
+void Random(int count, int schet) {
+	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
 #endif
-	
-	Data inf;
 
-
+	FILE* f1;
 	char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
-	for (int i = M * count; i < M * count + M;i++)
-	{
-		mm[i].in = letters[rand() % 10];
-		mm[i].init = letters[rand() % 10];
+	fopen_s(&f1, "t.txt", "w");
+	if (f1 == NULL) {
+		puts("Ошибка открытия файла");
+		exit(0);
+	}
+	else {
+		for (int i = M * count; i < M * count + M;i++)
+		{  
 		
-	}
-	for (int i = M * count; i < M * count + M;i++) {
-	
-		mm[i].birthdate = rand() % 20 + 1956;
-		mm[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-		 mm[i].numer = i;
-	}
-	
-     for (int i = M * count; i < M*count+M; i++) {
-		 mm[i].numer = rand() % M ;
+			fprintf(f1, "%c", inf.name);
+			inf.in = letters[rand() % 10];
+			fprintf(f1, "%c", inf.in);
+			inf.init = letters[rand() % 10];
+			fprintf(f1, "%c", inf.init);
+			fprintf(f1, " ");
+			fprintf(f1, "\n");
+		}
+		for (int i = M * count; i < M * count + M;i++) {
+			inf.birthdate = rand() % 20 + 1956;
+			fprintf(f1, "%hd", inf.birthdate);
+			inf.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
+			fprintf(f1, "%f", inf.salary);
+			inf.numer = i;
+			fprintf(f1, " ");
+			fprintf(f1, "\n");
+		}
 
+		for (int i = M * count; i < M * count + M; i++) {
+			inf.numer = rand() % M;
+			fprintf(f1, " ");
+			fprintf(f1, "%d", inf.numer);
+			fprintf(f1, " ");
+		}
 	}
+		fclose(f1);
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Имя файла:" << __FILE__ << endl;
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Sort(Data mm[], int count, int schet) {
+void Sort(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -281,13 +322,14 @@ void Sort(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Print(Data mm[], int count, int schet) {
+void Print(int count, int schet) {
+	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
 #endif
 	FILE* f1;
-	fopen_s(&f1, "t.txt", "w");
+	fopen_s(&f1, "t.txt", "r");
 	int n = M;
 	
 	if (f1 == NULL) {
@@ -295,6 +337,8 @@ void Print(Data mm[], int count, int schet) {
 		exit(0);
 	}
 	else {
+	/*	printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+			mm[i].name, mm[i].numer, mm[i].in, mm[i].init, mm[i].birthdate, mm[i].salary);*/
 		printf("-----------------------------------------------\n");
 		printf("|                  Отдел кадров               |\n");
 		printf("|---------------------------------------------|\n");
@@ -305,12 +349,22 @@ void Print(Data mm[], int count, int schet) {
 		fprintf(f1, "|---------------------------------------------|\n");
 		fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 		fprintf(f1, "|---------------------------------------------|\n");
-		for (int i=n*count; i < n*count+n; i++) {
-			printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
-				mm[i].name, mm[i].numer, mm[i].in, mm[i].init, mm[i].birthdate, mm[i].salary);
-			fprintf(f1, "|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
-				mm[i].name, mm[i].numer, mm[i].in, mm[i].init, mm[i].birthdate, mm[i].salary);
+		for (int i = n * count; i < n * count + n;i++) {
+			fscanf_s(f1, "%c", inf.name);
+			printf("|%c", inf.name);
+			fscanf_s(f1, "%d", inf.numer);
+			printf("|%-10d", inf.numer);
+			fscanf_s(f1, "%c", inf.in);
+			printf("|%c", inf.in);
+			fscanf_s(f1, "%c", inf.init);
+			printf("|%-9c|", inf.init);
+			fscanf_s(f1, "%hd", inf.birthdate);
+			printf("|%-14hd|", inf.birthdate);
+			fscanf_s(f1, "%f", inf.salary);
+			printf("|%-7.2f|", inf.salary);
+			printf("\n");
 		}
+
 		printf("|---------------------------------------------|\n");
 		printf("|Приметка:  |---------------------------------|\n");
 		printf("|оклад уста-|---------------------------------|\n");
@@ -331,7 +385,8 @@ void Print(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Screen3(Data mm[], int count, int schet) {
+void Screen3(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -349,16 +404,21 @@ void Screen3(Data mm[], int count, int schet) {
 	else {
 		for (int i = n * count; i < n * count + n; i++)
 		{
-			printf("%d.Введите фамилию, инициалы, год рождения, оклад>",
+			printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
 				n + 1);
-			fscanf_s(f1, "%s", mm[i].surname, sizeof(mm[i].surname));
-			scanf_s("%s", mm[i].surname, sizeof(mm[i].surname));
-			fscanf_s(f1, "%s", mm[i].initials, sizeof(mm[i].initials));
-			scanf_s("%s", mm[i].initials, sizeof(mm[n].initials));
-			fscanf_s(f1, "%hd", &mm[i].birthdate);
-			scanf_s("%hd", &mm[i].birthdate);
-			fscanf_s(f1, "%f", &mm[i].salary);
-			scanf_s("%f", &mm[i].salary);
+			scanf_s("%s", inf.surname, sizeof(inf.surname));
+			fprintf(f1, "%s", inf.surname);
+			fprintf(f1, " ");
+			scanf_s("%s", inf.initials, sizeof(inf.initials));
+			fprintf(f1, "%s", inf.initials);
+			fprintf(f1, " ");
+			scanf_s("%hd", &inf.birthdate);
+			fprintf(f1, "%hd", inf.birthdate);
+			fprintf(f1, " ");
+			scanf_s("%f", &inf.salary);
+			fprintf(f1, "%f", inf.salary);
+			fprintf(f1, " ");
+			fprintf(f1, "\n");
 		}
 
 		cout << "Действие:" << endl;
@@ -379,11 +439,16 @@ void Screen3(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = n * count; i < n * count + n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 
 			}
 
@@ -410,7 +475,6 @@ void Screen3(Data mm[], int count, int schet) {
 					mm[m] = inf;
 				}
 			}
-
 			printf("-----------------------------------------------\n");
 			printf("|                  Отдел кадров               |\n");
 			printf("|---------------------------------------------|\n");
@@ -421,12 +485,19 @@ void Screen3(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = n * count; i < n * count + n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
+
 			}
+
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
 			printf("|оклад уста-|---------------------------------|\n");
@@ -452,13 +523,19 @@ void Screen3(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = n * count; i < n * count + n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 
 			}
+
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
 			printf("|оклад уста-|---------------------------------|\n");
@@ -483,7 +560,8 @@ void Screen3(Data mm[], int count, int schet) {
 #endif
 
 }
-void Print3(Data mm[], int count, int schet) {
+void Print3(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -536,7 +614,8 @@ void Print3(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Sort3(Data mm[], int count, int schet) {
+void Sort3(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -629,7 +708,8 @@ void Sort3(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Screen4(Data mm[], int count, int schet) {
+void Screen4(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -647,16 +727,21 @@ void Screen4(Data mm[], int count, int schet) {
 	else {
 		for (int i = n * count; i < n * count + n; i++)
 		{
-			printf("%d.Введите фамилию, инициалы, год рождения, оклад>",
+			printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
 				n + 1);
-			fscanf_s(f1, "%s", mm[i].surname, sizeof(mm[i].surname));
-			scanf_s("%s", mm[i].surname, sizeof(mm[i].surname));
-			fscanf_s(f1, "%s", mm[n].initials, sizeof(mm[i].initials));
-			scanf_s("%s", mm[i].initials, sizeof(mm[i].initials));
-			fscanf_s(f1, "%hd", &mm[i].birthdate);
-			scanf_s("%hd", &mm[i].birthdate);
-			fscanf_s(f1, "%f", &mm[i].salary);
-			scanf_s("%f", &mm[i].salary);
+			scanf_s("%s", inf.surname, sizeof(inf.surname));
+			fprintf(f1, "%s", inf.surname);
+			fprintf(f1, " ");
+			scanf_s("%s", inf.initials, sizeof(inf.initials));
+			fprintf(f1, "%s", inf.initials);
+			fprintf(f1, " ");
+			scanf_s("%hd", &inf.birthdate);
+			fprintf(f1, "%hd", inf.birthdate);
+			fprintf(f1, " ");
+			scanf_s("%f", &inf.salary);
+			fprintf(f1, "%f", inf.salary);
+			fprintf(f1, " ");
+			fprintf(f1, "\n");
 		}
 
 		cout << "Действие:" << endl;
@@ -677,11 +762,16 @@ void Screen4(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = 0; i < n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 
 			}
 
@@ -719,12 +809,19 @@ void Screen4(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = n * count; i < n * count + n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
+
 			}
+
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
 			printf("|оклад уста-|---------------------------------|\n");
@@ -750,13 +847,19 @@ void Screen4(Data mm[], int count, int schet) {
 			fprintf(f1, "|---------------------------------------------|\n");
 			fprintf(f1, "|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			fprintf(f1, "|---------------------------------------------|\n");
-			for (int i = n * count; i < n * count + n; i++) {
-				fprintf(f1, "|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					mm[i].surname, mm[i].initials, mm[i].birthdate, mm[i].salary);
+			for (int i = n * count; i < n * count + n;i++) {
+				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
+				printf("|%-11s", inf.surname);
+				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
+				printf("|%-10s", inf.initials);
+				fscanf_s(f1, "%hd", &inf.birthdate);
+				printf("|%-14hd", inf.birthdate);
+				fscanf_s(f1, "%f", &inf.salary);
+				printf("|%-7.2f|", inf.salary);
+				printf("\n");
 
 			}
+
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
 			printf("|оклад уста-|---------------------------------|\n");
@@ -781,7 +884,8 @@ void Screen4(Data mm[], int count, int schet) {
 #endif
 
 }
-void Print4(Data mm[], int count, int schet) {
+void Print4(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -834,7 +938,8 @@ void Print4(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Sort4(Data mm[], int count, int schet) {
+void Sort4(int count, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -927,7 +1032,8 @@ void Sort4(Data mm[], int count, int schet) {
 #endif
 	fclose(f1);
 }
-void Print5(Data mm[], int count, bool  schetchik_name, bool schetchik_surname, int schet) {
+void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) {
+	Data mm[10];
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -1129,7 +1235,8 @@ void Print5(Data mm[], int count, bool  schetchik_name, bool schetchik_surname, 
         }
      }
   }
-void Print6(Data mm[], int count, bool  schetchik_name, bool schetchik_surname, int schet) {
+void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) {
+	Data mm[10];
 	if (count == 0) {
 		cout << "Структуры не заполнены"<<endl;
 	}

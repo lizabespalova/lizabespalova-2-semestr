@@ -27,13 +27,13 @@ int main()
 		cin >> resp;
 		if (resp == 1) {
 			cout << "Заполните таблицу:" << endl;
-			Screen(mm,count,schet);
+			Screen(count,schet);
 			count++;
 			schetchik_surname = true;
 		}
 		if (resp == 2) {
 			cout << "Таблица заполнится случайным образом:" << endl;
-			Random(mm, count,schet);
+			Random(count,schet);
 			schetchik_name = true;
 			cout << "Выберите операцию которую будем проводить:" << endl;
 			cout << "(1)Сортировка" << endl;
@@ -42,13 +42,13 @@ int main()
 			cin >> answer;
 			if (answer == 1)
 			{
-				Sort(mm, count, schet);
+				Sort(count, schet);
 				count++;
 				schet++;
 			}
 			else if (answer == 2)
 			{
-				Print(mm, count,schet);
+				Print(count,schet);
 				count++;
 				schet++;
 			}
@@ -61,13 +61,13 @@ int main()
 			cin >> respond;
 			if (respond == 1) {
 				cout << "Заполните таблицу:" << endl;
-				Screen3(mm, count, schet);
+				Screen3(count, schet);
 				count++;
 				schetchik_surname = true;
 			}
 			else if (respond == 2) {
 				cout << "Таблица заполнится случайным образом:" << endl;
-				Random(mm, count, schet);
+				Random(count, schet);
 				schetchik_name = true;
 
 				cout << "Выберите операцию которую будем проводить:" << endl;
@@ -76,12 +76,12 @@ int main()
 				int answ;
 				cin >> answ;
 				if (answ == 1) {
-					Sort3(mm, count, schet);
+					Sort3(count, schet);
 					count++;
 					schet++;
 				}
 				else if (answ == 2) {
-					Print3(mm, count, schet);
+					Print3(count, schet);
 					count++;
 					schet++;
 				}
@@ -95,13 +95,13 @@ int main()
 			cin >> respond;
 			if (respond == 1) {
 				cout << "Заполните таблицу:" << endl;
-				Screen4(mm, count, schet);
+				Screen4(count, schet);
 				count++;
 				schetchik_surname = true;
 			}
 			else if (respond == 2) {
 				cout << "Таблица заполнится случайным образом:" << endl;
-				Random(mm, count, schet);
+				Random(count, schet);
 				schetchik_name = true;
 
 				cout << "Выберите операцию которую будем проводить:" << endl;
@@ -110,22 +110,22 @@ int main()
 				int answ;
 				cin >> answ;
 				if (answ == 1) {
-					Sort4(mm, count, schet);
+					Sort4(count, schet);
 					count++;
 					schet++;
 				}
 				else if (answ == 2) {
-					Print4(mm, count, schet);
+					Print4(count, schet);
 					count++;
 					schet++;
 				}
 			}
 		}
 		if (resp == 5) {
-			Print5(mm, count, schetchik_name , schetchik_surname, schet);
+			Print5(count, schetchik_name , schetchik_surname, schet);
 		}
 		if (resp == 6) {
-			Print6(mm, count, schetchik_name, schetchik_surname, schet);
+			Print6(count, schetchik_name, schetchik_surname, schet);
 		}
 		if (resp == 7) {
 			exit(0);

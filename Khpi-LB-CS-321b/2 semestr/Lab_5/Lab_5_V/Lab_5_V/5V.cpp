@@ -6,7 +6,7 @@ void Fill(int*A, int N) {
 	}
 
 }
-void Pysirok(int*A, int N) {
+int Pysirok(int*A, int N) {
     for (int i = 0;i < N;i++) {
         for (int j = i + 1; j < N; j++) {
             if (*(A + i) > *(A + j)) {
@@ -14,9 +14,9 @@ void Pysirok(int*A, int N) {
             }
         }
     }
-    
+    return*A;
 }
-void Choara(int*A, int N) {
+int Choara(int*A, int N) {
     int i, j; 
     int lb, ub; 
 
@@ -71,9 +71,9 @@ void Choara(int*A, int N) {
             }
         } while (lb < ub);  
     } while (tekpoz != 0);  
- 
+    return *A;
 }
-void Gnom(int*A, int N) {
+int Gnom(int*A, int N) {
     int i = 0;
     int tmp = 0;
     while (i < N) {
@@ -87,5 +87,20 @@ void Gnom(int*A, int N) {
 
         }
     }
-   
+    return*A;
+}
+void Rand(int(*p)(int*A, int N), int*A, int N) {
+    cout << "Выберите действие:" << endl;
+    cout << "(1)Пузырьком" << endl;
+    cout << "(2)Хоара" << endl;
+    cout << "(3)Гномьей" << endl;
+    int ans;
+    cin >> ans;
+    if (ans == 1)
+        Pysirok(A, N);
+    if (ans == 2)
+        Choara(A, N);
+    if (ans == 3)
+       Gnom(A, N);
+  
 }
