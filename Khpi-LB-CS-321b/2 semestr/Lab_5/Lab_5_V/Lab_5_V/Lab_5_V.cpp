@@ -19,7 +19,18 @@ int main()
 			cout << setw(4) << *(A + i);
 		}
 		cout << endl;
-		Rand(Pysirok, A, N),(Choara, A, N),(Gnom,A, N);
+		cout << "Выберите действие:" << endl;
+		cout << "(1)Пузырьком" << endl;
+		cout << "(2)Хоара" << endl;
+		cout << "(3)Гномьей" << endl;
+		int ans;
+		cin >> ans;
+		if (ans == 1)
+			Rand(Pysirok, A, N);
+		if (ans == 2)
+			Rand(Choara, A, N);
+		if (ans == 3)
+			Rand(Gnom, A, N);
 		for (int i = 0; i < N;i++) {
 			cout << setw(4) << *(A + i);
 		}

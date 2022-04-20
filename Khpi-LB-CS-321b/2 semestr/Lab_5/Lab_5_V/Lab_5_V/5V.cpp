@@ -1,5 +1,8 @@
 #include "5V.h"
 
+int Rand(int(*p)(int* A, int N), int* A, int N) {
+    return p(A, N);
+}
 void Fill(int*A, int N) {
 	for (int i = 0; i < N; i++) {
 		*(A + i) = rand() % 100 + 1;
@@ -88,19 +91,4 @@ int Gnom(int*A, int N) {
         }
     }
     return*A;
-}
-void Rand(int(*p)(int*A, int N), int*A, int N) {
-    cout << "Выберите действие:" << endl;
-    cout << "(1)Пузырьком" << endl;
-    cout << "(2)Хоара" << endl;
-    cout << "(3)Гномьей" << endl;
-    int ans;
-    cin >> ans;
-    if (ans == 1)
-        Pysirok(A, N);
-    if (ans == 2)
-        Choara(A, N);
-    if (ans == 3)
-       Gnom(A, N);
-  
 }
