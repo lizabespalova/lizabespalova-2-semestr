@@ -8,6 +8,4 @@ struct Data {
 	char initials[5];
 	short birthdate;
 	float salary;
-	char a[10];
-	char b[10];
 };
