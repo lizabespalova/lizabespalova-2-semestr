@@ -31,7 +31,7 @@ struct List {
 		information = new Data[length];
 	}
 	*/
-	int position;
+	/*int position;*/
 	Data information[100];
 	List* next;
 	/*int length;

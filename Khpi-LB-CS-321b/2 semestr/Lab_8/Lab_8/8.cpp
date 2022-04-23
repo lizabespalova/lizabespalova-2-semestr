@@ -1,15 +1,13 @@
 #include "8.h"
 #include "Struct8.h"
 struct List* Sozdaniespiskavvod(List*head) {
-	List* vvod =new List;
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
 	cout << "Время:" << __TIME__ << endl;
 #endif
 	Data info;
-    vvod = new List;
-	vvod->next = new List;
+	List* vvod = new List;
 	for (int i = 0; i < M; i++)
 	{
 			printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
@@ -19,101 +17,16 @@ struct List* Sozdaniespiskavvod(List*head) {
 			scanf_s("%hd", &vvod->information[i].birthdate);
 			scanf_s("%f", &vvod->information[i].salary);
 	}
-	cout << "Действие:" << endl;
-	cout << "(1)Сортировка" << endl;
-	cout << "(2)Печать" << endl;
-	int ans;
-	int m = 0;
-	cin >> ans;
-	if (ans == 1)
-	{
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
-
-			for (int i = 0; i < M;i++) {
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					vvod->information[i].surname, vvod->information[i].initials, vvod->information->birthdate, vvod->information->salary);
-			}
-
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-			for (int i =0; i < M;i++) {
-				m = i;
-				for (int j = i + 1; j < M; j++)
-
-					if (strcmp(vvod->information[m].surname, vvod->information[j].surname) > 0) m = j;
-				if (m > i) {
-					info = vvod->information[i];
-					vvod->information[i] = vvod->information[m];
-					vvod->information[m] = info;
-				}
-			}
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
-			for (int i = 0; i < M;i++) {
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					vvod->information[i].surname, vvod->information[i].initials, vvod->information->birthdate, vvod->information->salary);
-			}
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-			vvod = vvod->next;
-		
-		}
-	
-	else if (ans == 2)
-	{
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
-			for (int i = 0; i < M;i++) {
-				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
-					vvod->information[i].surname, vvod->information[i].initials, vvod->information->birthdate, vvod->information->salary);
-			}
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-
-			vvod = vvod->next;
-		
-	}
-
-#ifdef DEBUG
-cout << "\n";
-cout << "Имя файла:" << __FILE__ << endl;
-cout << "Имя функции:" << __FUNCTION__ << endl;
-#endif
-
-vvod->next = NULL;
-return head;
+	vvod->next = NULL;
+ return vvod;
 };
-struct List* Sozdaniespiskarand(List* end){
-	List* head = end;
+struct List* Sozdaniespiskarand(List* head){
 	List* random = new List;
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
 	cout << "Время:" << __TIME__ << endl;
 #endif
-	cout << "Введите количество списков";
 	char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
 	for (int i = 0; i < M ;i++)
 	{
@@ -138,9 +51,96 @@ struct List* Sozdaniespiskarand(List* end){
 	random->next = NULL;
 	return random;
 }
-void Print(List *head) {
+void Destvie(List* head) {
+	Data info;
+	cout << "Действие:" << endl;
+	cout << "(1)Печать" << endl;
+	cout << "(2)Сортировка" << endl;
+	int ans;
+	int m = 0;
+	cin >> ans;
 	
-	List* random =head;
+	if (ans == 1) {
+		List* print = head;
+		/*print->next = NULL;*/
+		while (print) {
+			printf("-----------------------------------------------\n");
+			printf("|                  Отдел кадров               |\n");
+			printf("|---------------------------------------------|\n");
+			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+			printf("|---------------------------------------------|\n");
+
+			for (int i = 0; i < M; i++) {
+				printf("|%-11s|%-10s|%-14hd|%-7.2f| \n",
+					print->information[i].surname, print->information[i].initials, print->information[i].birthdate, print->information[i].salary);
+			}
+			printf("|---------------------------------------------|\n");
+			printf("|Приметка:  |---------------------------------|\n");
+			printf("|оклад уста-|---------------------------------|\n");
+			printf("|новлен на 1|---------------------------------|\n");
+			printf("|января 2000|---------------------------------|\n");
+			printf("|-----------|---------------------------------|\n");
+			print = print->next;
+		}
+	}
+	if (ans == 2)
+	{
+		List* sort = head;
+	
+		while (sort) {
+			printf("-----------------------------------------------\n");
+			printf("|                  Отдел кадров               |\n");
+			printf("|---------------------------------------------|\n");
+			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+			printf("|---------------------------------------------|\n");
+			for (int i = 0; i < M;i++) {
+				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
+					sort->information[i].surname, sort->information[i].initials, sort->information->birthdate, sort->information->salary);
+			}
+			printf("|---------------------------------------------|\n");
+			printf("|Приметка:  |---------------------------------|\n");
+			printf("|оклад уста-|---------------------------------|\n");
+			printf("|новлен на 1|---------------------------------|\n");
+			printf("|января 2000|---------------------------------|\n");
+			printf("|-----------|---------------------------------|\n");
+
+			for (int i = 0; i < M;i++) {
+				m = i;
+				for (int j = i + 1; j < M; j++)
+
+					if (strcmp(sort->information[m].surname, sort->information[j].surname) > 0) m = j;
+				if (m > i) {
+					info = sort->information[i];
+					sort->information[i] = sort->information[m];
+					sort->information[m] = info;
+				}
+			}
+		
+			printf("-----------------------------------------------\n");
+			printf("|                  Отдел кадров               |\n");
+			printf("|---------------------------------------------|\n");
+			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+			printf("|---------------------------------------------|\n");
+			for (int i = 0; i < M;i++) {
+				printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
+					sort->information[i].surname, sort->information[i].initials, sort->information->birthdate, sort->information->salary);
+			}
+			printf("|---------------------------------------------|\n");
+			printf("|Приметка:  |---------------------------------|\n");
+			printf("|оклад уста-|---------------------------------|\n");
+			printf("|новлен на 1|---------------------------------|\n");
+			printf("|января 2000|---------------------------------|\n");
+			printf("|-----------|---------------------------------|\n");
+			sort = sort->next;
+		}
+	}
+#ifdef DEBUG
+	cout << "\n";
+	cout << "Имя файла:" << __FILE__ << endl;
+	cout << "Имя функции:" << __FUNCTION__ << endl;
+#endif
+}
+void Print(List *head) {
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
@@ -256,79 +256,63 @@ void Sort(List *head) {
 
 
 }
-void Add(List* head, int size) {
-	/*List* current = new List;*/
+void Add(List* head) {
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
 	cout << "Время:" << __TIME__ << endl;
 #endif
+	List* add = head;
+	add = head;
    cout<<"Выберите позицию"<<endl;
    int position;
    cin >> position;
-   int shetchik = 1;
+   position--;
+   int schetchik=0;
+ 
 	if (head == NULL) {
-		head = new List;
+		cout <<" Пусто" << endl;
+		return;
+	}
+	while (add) {
+		schetchik++;
+		add = add->next;
 	}
 
-		/*List* current = head;
-		current->next = new List;*/
-		
-		
-		
-		/*size++;
-		List* arr2 = new List[size];
-		for (int i = 0; i < size; i++)
-		{
-			if (i < position)
-				arr2[i] = head[i];
-			else if (i > position)
-				arr2[i] = head[i - 1];
-		}*/
-		// 0 1 2 3 4		head
-		// 0 1 X 2 3 4		arr2
-		
-		
-		
-		
-		/*while (head) {
-			head = head->next;
-			shetchik++;
-		}
-		if (position > shetchik || position<0) {
-			cout << "Вы вышли за пределы списка" << endl;;
-			return;
-		}*/
-		shetchik = 1;
-		while (shetchik!=position) {
-			current = current->next;
-			shetchik++;
-		}
-		
-		if (shetchik == position) {
-			char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
-			for (int i = 0; i < M;i++)
-			{
-				current->information[i].in = letters[rand() % 10];
-				current->information[i].init = letters[rand() % 10];
-				current->information[i].birthdate = rand() % 20 + 1956;
-				current->information[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-				current->information[i].numer = i;
+	if (position<0 || position>schetchik) {
+		cout << "Вы вышли за пределы списка"<<endl;
+		return;
+	}
+	add = head;
+	for (int i = 0; i < position-1; i++)
+    	{ 
+		add = add->next;
 		}
 
+	List* temp = new List;
+
+	for (int i = 0; i < M ; i++) {
+	
+			for (int i = 0; i < M;i++)
+			{
+				char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
+				temp->information[i].in = letters[rand() % 10];
+				temp->information[i].init = letters[rand() % 10];
+				temp->information[i].birthdate = rand() % 20 + 1956;
+				temp->information[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
+				temp->information[i].numer = i;
+			}
+
 			for (int i = 0; i < M; i++) {
-				current->information[i].numer = rand() % M;
-				current->information[i].name = '№';
+				temp->information[i].numer = rand() % M;
+				temp->information[i].name = '№';
 			}
-		}
-		
-		current->next;
-		
-			while (current != NULL) {
-				current->next = NULL;
-				current = current->next;
-			}
-		
+
+		temp->next;
+	}
+	temp->next = add->next;
+	add->next = temp;
+	
 
 #ifdef DEBUG
 		cout << "\n";

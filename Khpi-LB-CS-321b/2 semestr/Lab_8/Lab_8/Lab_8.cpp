@@ -24,7 +24,7 @@ int main()
 		cout << "(4)Добавление элемента(в любое заданное место)" << endl;
 		cout << "(5)Удаление любого элемента" << endl;
 		cout << "(6)Сортировка" << endl;
-		cout << "(7)Запись списка в файла" << endl;
+		cout << "(7)Запись списка в файл" << endl;
 		cout << "(8)Создание нового списка из файла" << endl;
 		cout << "(9)Выход из программы" << endl;
 		int ans;
@@ -37,6 +37,7 @@ int main()
 			cin >> otv;
 			if (otv == 1) {
 		    head = Sozdaniespiskavvod(head);
+			Destvie(head);
 			}
 			if (otv == 2) {
 
