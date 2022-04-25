@@ -62,7 +62,6 @@ void Destvie(List* head) {
 	
 	if (ans == 1) {
 		List* print = head;
-		/*print->next = NULL;*/
 		while (print) {
 			printf("-----------------------------------------------\n");
 			printf("|                  Отдел кадров               |\n");
@@ -140,7 +139,7 @@ void Destvie(List* head) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Print(List *head) {
+void Print(List *head, bool insert) {
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
@@ -153,24 +152,65 @@ void Print(List *head) {
 	}
 	else {
 		while (print) {
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
+			if (insert == false) {
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
 
-			for (int i = 0; i < M; i++) {
-				printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
-					print->information[i].name, print->information[i].numer, print->information[i].in, print->information[i].init, print->information[i].birthdate, print->information[i].salary);
+				for (int i = 0; i < M; i++) {
+					printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+						print->information[i].name, print->information[i].numer, print->information[i].in, print->information[i].init, print->information[i].birthdate, print->information[i].salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+				print = print->next;
 			}
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-			print=print->next ;
-			
+			else if (insert == true) {
+
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
+
+				for (int i = 0; i < M; i++) {
+					printf("|%-11s|%-10s|%-14hd|%-7.2f| \n",
+						print->information[i].surname, print->information[i].initials, print->information[i].birthdate, print->information[i].salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+				print = print->next;
+
+
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
+
+				for (int i = 0; i < M; i++) {
+					printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+						print->information[i].name, print->information[i].numer, print->information[i].in, print->information[i].init, print->information[i].birthdate, print->information[i].salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+				print = print->next;
+				insert = false;
+			}
 		}
 	}
 #ifdef DEBUG
@@ -181,12 +221,13 @@ void Print(List *head) {
 		
 	
 }
-void Sort(List *head) {
+void Sort(List *head, bool insert) {
 #ifdef DEBUG
 	cout << "\n";
 	cout << "Дата:" << __DATE__ << endl;
 	cout << "Время:" << __TIME__ << endl;
 #endif
+	int m = 0;
 	Data info;
 	List* sort = head;
 	if (head == NULL) {
@@ -195,57 +236,166 @@ void Sort(List *head) {
 	}
 	else {
 		while (sort) {
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
+			if (insert == false) {
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
 
-			
+
 				for (int i = 0; i < M; i++) {
 					printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
 						sort->information[i].name, sort->information[i].numer, sort->information[i].in, sort->information[i].init, sort->information[i].birthdate, sort->information[i].salary);
 				}
 
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-		
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
 
 
-			for (int i = 0; i < M; i++) {
 
-				for (int j = i + 1; j <M; j++)
+				for (int i = 0; i < M; i++) {
 
-					if (sort->information[i].numer > sort->information[j].numer) {
-						if (j > i) {
-							info = sort->information[i];
-							sort->information[i] = sort->information[j];
-							sort->information[j] = info;
+					for (int j = i + 1; j < M; j++)
+
+						if (sort->information[i].numer > sort->information[j].numer) {
+							if (j > i) {
+								info = sort->information[i];
+								sort->information[i] = sort->information[j];
+								sort->information[j] = info;
+							}
 						}
+				}
+
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
+
+				for (int i = 0; i < M; i++) {
+					printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+						sort->information[i].name, sort->information[i].numer, sort->information[i].in, sort->information[i].init, sort->information[i].birthdate, sort->information[i].salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+				sort = sort->next;
+			}
+			else if (insert == true) {
+
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
+				for (int i = 0; i < M;i++) {
+					printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
+						sort->information[i].surname, sort->information[i].initials, sort->information->birthdate, sort->information->salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+
+				for (int i = 0; i < M;i++) {
+					m = i;
+					for (int j = i + 1; j < M; j++)
+
+						if (strcmp(sort->information[m].surname, sort->information[j].surname) > 0) m = j;
+					if (m > i) {
+						info = sort->information[i];
+						sort->information[i] = sort->information[m];
+						sort->information[m] = info;
 					}
-			}
+				}
 
-			printf("-----------------------------------------------\n");
-			printf("|                  Отдел кадров               |\n");
-			printf("|---------------------------------------------|\n");
-			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
-			printf("|---------------------------------------------|\n");
+				printf("-----------------------------------------------\n");
+				printf("|                  Отдел кадров               |\n");
+				printf("|---------------------------------------------|\n");
+				printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+				printf("|---------------------------------------------|\n");
+				for (int i = 0; i < M;i++) {
+					printf("|%-11s|%-10s|%-14hd|%-7.2f|\n",
+						sort->information[i].surname, sort->information[i].initials, sort->information->birthdate, sort->information->salary);
+				}
+				printf("|---------------------------------------------|\n");
+				printf("|Приметка:  |---------------------------------|\n");
+				printf("|оклад уста-|---------------------------------|\n");
+				printf("|новлен на 1|---------------------------------|\n");
+				printf("|января 2000|---------------------------------|\n");
+				printf("|-----------|---------------------------------|\n");
+				sort = sort->next;
 
-			for (int i = 0; i < M; i++) {
-				printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
-					sort->information[i].name, sort->information[i].numer, sort->information[i].in, sort->information[i].init, sort->information[i].birthdate, sort->information[i].salary);
+
+
+
+
+
+				if (insert == true) {
+					printf("-----------------------------------------------\n");
+					printf("|                  Отдел кадров               |\n");
+					printf("|---------------------------------------------|\n");
+					printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+					printf("|---------------------------------------------|\n");
+
+
+					for (int i = 0; i < M; i++) {
+						printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+							sort->information[i].name, sort->information[i].numer, sort->information[i].in, sort->information[i].init, sort->information[i].birthdate, sort->information[i].salary);
+					}
+
+					printf("|---------------------------------------------|\n");
+					printf("|Приметка:  |---------------------------------|\n");
+					printf("|оклад уста-|---------------------------------|\n");
+					printf("|новлен на 1|---------------------------------|\n");
+					printf("|января 2000|---------------------------------|\n");
+					printf("|-----------|---------------------------------|\n");
+
+
+
+					for (int i = 0; i < M; i++) {
+
+						for (int j = i + 1; j < M; j++)
+
+							if (sort->information[i].numer > sort->information[j].numer) {
+								if (j > i) {
+									info = sort->information[i];
+									sort->information[i] = sort->information[j];
+									sort->information[j] = info;
+								}
+							}
+					}
+
+					printf("-----------------------------------------------\n");
+					printf("|                  Отдел кадров               |\n");
+					printf("|---------------------------------------------|\n");
+					printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+					printf("|---------------------------------------------|\n");
+
+					for (int i = 0; i < M; i++) {
+						printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+							sort->information[i].name, sort->information[i].numer, sort->information[i].in, sort->information[i].init, sort->information[i].birthdate, sort->information[i].salary);
+					}
+					printf("|---------------------------------------------|\n");
+					printf("|Приметка:  |---------------------------------|\n");
+					printf("|оклад уста-|---------------------------------|\n");
+					printf("|новлен на 1|---------------------------------|\n");
+					printf("|января 2000|---------------------------------|\n");
+					printf("|-----------|---------------------------------|\n");
+					sort = sort->next;
+					insert = false;
+				}
 			}
-			printf("|---------------------------------------------|\n");
-			printf("|Приметка:  |---------------------------------|\n");
-			printf("|оклад уста-|---------------------------------|\n");
-			printf("|новлен на 1|---------------------------------|\n");
-			printf("|января 2000|---------------------------------|\n");
-			printf("|-----------|---------------------------------|\n");
-			sort = sort->next;
 		}
 	}
 #ifdef DEBUG
@@ -262,27 +412,28 @@ void Add(List* head) {
 	cout << "Дата:" << __DATE__ << endl;
 	cout << "Время:" << __TIME__ << endl;
 #endif
-	List* add = head;
-	add = head;
-   cout<<"Выберите позицию"<<endl;
-   int position;
-   cin >> position;
-   position--;
-   int schetchik=0;
- 
+	
 	if (head == NULL) {
 		cout <<" Пусто" << endl;
 		return;
 	}
+	List* add = head;
+	cout << "Выберите позицию" << endl;
+	int position;
+	cin >> position;
+
+	int schetchik = 0;
+
 	while (add) {
 		schetchik++;
 		add = add->next;
 	}
 
-	if (position<0 || position>schetchik) {
+	if (position<=0 || position>schetchik) {
 		cout << "Вы вышли за пределы списка"<<endl;
 		return;
 	}
+	
 	add = head;
 	for (int i = 0; i < position-1; i++)
     	{ 
@@ -319,4 +470,175 @@ void Add(List* head) {
 		cout << "Имя файла:" << __FILE__ << endl;
 		cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
+}
+void Delete(List* head) {
+	List* del = head;
+	if (head == NULL) {
+		cout << " Пусто" << endl;
+		return;
+	}
+	cout << "Выберите позицию" << endl;
+	int position;
+	cin >> position;
+	int schetchik = 0;
+	/*if (position == 1) {
+		cout << "удалить можно только добавленный файл" << endl;
+		return;
+	}*/
+
+
+	/*if (position == 0) {
+		head = head->next;
+		delete del;
+	}
+	*/
+	
+		while (del) {
+			schetchik++;
+			del = del->next;
+		}
+
+		if (position <= 0 || position > schetchik||head->next==NULL) {
+			cout << "Вы вышли за пределы списка" << endl;
+			return;
+		}
+		del = head;
+		for (int i = 0; i < position - 1; i++)
+		{
+			del = del->next;
+		}
+
+		List* temp = del->next;
+		del->next = temp->next;
+		delete temp;
+	
+}
+void Poisk(List* head) {
+	if (head == NULL) {
+		cout << "Пустой список" << endl;
+		return;
+	}
+	List* poisk = head;
+	cout << "Выберите позицию" << endl;
+	int position;
+	cin >> position;
+	int schetchik = 0;
+
+	while (poisk) {
+		schetchik++;
+		poisk =poisk->next;
+	}
+
+	if (position<0 || position>schetchik) {
+		cout << "Вы вышли за пределы списка" << endl;
+		return;
+	}
+	poisk = head;
+	for (int i = 0; i < position - 1; i++)
+	{
+		poisk= poisk->next;
+	}
+
+	List* print = poisk;
+			printf("-----------------------------------------------\n");
+			printf("|                  Отдел кадров               |\n");
+			printf("|---------------------------------------------|\n");
+			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+			printf("|---------------------------------------------|\n");
+
+			for (int i = 0; i < M; i++) {
+				printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
+					print->information[i].name, print->information[i].numer, print->information[i].in, print->information[i].init, print->information[i].birthdate, print->information[i].salary);
+			}
+			printf("|---------------------------------------------|\n");
+			printf("|Приметка:  |---------------------------------|\n");
+			printf("|оклад уста-|---------------------------------|\n");
+			printf("|новлен на 1|---------------------------------|\n");
+			printf("|января 2000|---------------------------------|\n");
+			printf("|-----------|---------------------------------|\n");
+}
+void Create_v_fail(List* head) {
+	List* create = new List;
+	FILE* f;
+	fopen_s(&f, "file.txt", "w");
+	if(f == NULL){
+		cout << "Ошибка" << endl;
+		exit(0);
+	}
+	else {
+		char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
+		for (int i = 0; i < M;i++)
+		{
+			create->information[i].name = '№';
+			fprintf(f, "%c", create->information[i].name);
+			create->information[i].numer = rand() % M;
+			fprintf(f, "%d", create->information[i].numer);
+			fprintf(f, " ");
+			create->information[i].in = letters[rand() % 10];
+			fprintf(f, "%c", create->information[i].in);
+			fprintf(f, " ");
+			create->information[i].init = letters[rand() % 10];
+			fprintf(f, "%c", create->information[i].init);
+			fprintf(f, " ");
+			create->information[i].birthdate = rand() % 20 + 1956;
+			fprintf(f, "%hd", create->information[i].birthdate);
+			fprintf(f, " ");
+			create->information[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
+			fprintf(f, "%f", create->information[i].salary);
+		}
+
+		for (int i = 0; i < M; i++) {
+			create->information[i].numer = rand() % M;
+			create->information[i].name = '№';
+		}
+		fclose(f);
+	}
+	create->next = NULL;
+}
+void Sozdanie_s_fail(List* head) {
+	List* sozdanie = new List;
+	FILE* f;
+	fopen_s(&f, "file.txt", "r");
+	if (f == NULL) {
+		cout << "Ошибка" << endl;
+	}
+	char a;
+	size_t readed = fread(&a, 1, 1, f);
+	if (!readed) {
+		cout << "Пустой файл" << endl;
+		return;
+	}
+	fclose(f);
+		fopen_s(&f, "file.txt", "r");
+		printf("-----------------------------------------------\n");
+		printf("|                  Отдел кадров               |\n");
+		printf("|---------------------------------------------|\n");
+		printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
+		printf("|---------------------------------------------|\n");
+		for (int i = 0; i < M;i++) {
+			fscanf_s(f, "%c", &sozdanie->information[i].name);
+			printf("|%c", sozdanie->information[i].name);
+			fscanf_s(f, "%d", &sozdanie->information[i].numer);
+			printf("%-10d", sozdanie->information[i].numer);
+			fscanf_s(f, "%c", &sozdanie->information[i].in);
+			fscanf_s(f, "%c", &sozdanie->information[i].in);
+			printf("|%c", sozdanie->information[i].in);
+			fscanf_s(f, "%c", &sozdanie->information[i].init);
+			fscanf_s(f, "%c", &sozdanie->information[i].init);
+			printf("%-9c", sozdanie->information[i].init);
+			fscanf_s(f, "%hd", &sozdanie->information[i].birthdate);
+			printf("|%-14hd", sozdanie->information[i].birthdate);
+			fscanf_s(f, "%f", &sozdanie->information[i].salary);
+			printf("|%-7.2f|", sozdanie->information[i].salary);
+			printf("\n");
+		}
+
+		printf("|---------------------------------------------|\n");
+		printf("|Приметка:  |---------------------------------|\n");
+		printf("|оклад уста-|---------------------------------|\n");
+		printf("|новлен на 1|---------------------------------|\n");
+		printf("|января 2000|---------------------------------|\n");
+		printf("|---------------------------------------------|\n");
+	fclose(f);
+		sozdanie->next = NULL;
 }

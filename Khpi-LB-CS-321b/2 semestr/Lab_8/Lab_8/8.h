@@ -15,7 +15,11 @@ using namespace std;
 
 struct List* Sozdaniespiskavvod(List*head);
 struct List* Sozdaniespiskarand(List* head);
-void Print(List*);
-void Sort(List*);
+void Print(List*, bool insert);
+void Sort(List*, bool insert);
 void Destvie(List*);
 void Add(List*);
+void Delete(List*);
+void Poisk(List*);
+void Create_v_fail(List*);
+void Sozdanie_s_fail(List*);
