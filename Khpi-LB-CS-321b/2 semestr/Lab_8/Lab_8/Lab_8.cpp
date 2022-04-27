@@ -45,6 +45,10 @@ int main()
 			Print(head, insert);
 			}
 			if (ans == 3) {
+				if (insert == true) {
+					cout << "Поиск работает для рандомных значений" << endl;
+				}
+				else
 				Poisk(head);
 			}
 			if (ans == 4) {

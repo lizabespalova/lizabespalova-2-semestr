@@ -8,10 +8,9 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	srand(time(NULL));
-	int count = 0;
-	int schet = 0;
+
 	bool schetchik_surname=false;
-	bool schetchik_name=false;
+	bool schetchik_name=true;
 	bool a =true;
 	while (true) {
 		
@@ -28,44 +27,41 @@ int main()
 		if (resp == 1) {
 			schetchik_surname = true;
 			cout << "Заполните таблицу:" << endl;
-			Screen(count,schet);
-			count=1;
+			Screen();
+		
 			
 		}
 		if (resp == 2) {
 			cout << "Таблица заполнится случайным образом" << endl;
-			Random(count,schet);
+			Random();
 		     	schetchik_name = true;
-				Print(count,schet);
+				Print();
 				if (a) {
-					count=1;
-					schet++;
+				
 				}
 				a = false;
 		}
 		if (resp == 3) {
 			
 				cout << "Таблица заполнится случайным образом" << endl;
-				Random3(count, schet);
+				Random3();
 				schetchik_name = true;
-					count++;
-					schet++;
+					
 				
 			}
 		
 		if (resp == 4) {
 		
 				cout << "Таблица заполнится случайным образом" << endl;
-				Random4(count, schet);
+				Random4();
 				schetchik_name = true;
-					count=1;
-					schet++;
+				
 		}
 		if (resp == 5) {
-			Print5(count, schetchik_name , schetchik_surname, schet);
+			Print5(schetchik_name , schetchik_surname);
 		}
 		if (resp == 6) {
-			Print6(count, schetchik_name, schetchik_surname, schet);
+			Print6(schetchik_name, schetchik_surname);
 		}
 		if (resp == 7) {
 			exit(0);

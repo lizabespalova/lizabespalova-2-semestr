@@ -480,38 +480,30 @@ void Delete(List* head) {
 	cout << "Выберите позицию" << endl;
 	int position;
 	cin >> position;
+
+
 	int schetchik = 0;
-	/*if (position == 1) {
-		cout << "удалить можно только добавленный файл" << endl;
-		return;
-	}*/
-
-
-	/*if (position == 0) {
-		head = head->next;
-		delete del;
+	while (del) {
+		schetchik++;
+		del = del->next;
 	}
-	*/
-	
-		while (del) {
-			schetchik++;
-			del = del->next;
-		}
 
-		if (position <= 0 || position > schetchik||head->next==NULL) {
-			cout << "Вы вышли за пределы списка" << endl;
-			return;
-		}
-		del = head;
-		for (int i = 0; i < position - 1; i++)
-		{
-			del = del->next;
-		}
-
-		List* temp = del->next;
-		del->next = temp->next;
-		delete temp;
-	
+	if (position <= 0 || position > schetchik || head->next == NULL) {
+		cout << "Вы вышли за пределы списка" << endl;
+		return;
+	}
+	del = head;
+	for (int i = 0; i < position - 1; i++)
+	{
+		del = del->next;
+	}
+	List* temp = del->next;
+	if (del->next == NULL) {
+		cout << "Вы вышли за пределы списка" << endl;
+		return;
+	}
+	del->next = temp->next;
+	delete temp;
 }
 void Poisk(List* head) {
 	if (head == NULL) {
@@ -584,7 +576,7 @@ void Create_v_fail(List* head) {
 			fprintf(f, "%hd", create->information[i].birthdate);
 			fprintf(f, " ");
 			create->information[i].salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-			fprintf(f, "%f", create->information[i].salary);
+			fprintf(f, "%f\n", create->information[i].salary);
 		}
 
 		for (int i = 0; i < M; i++) {
@@ -630,6 +622,7 @@ void Sozdanie_s_fail(List* head) {
 			printf("|%-14hd", sozdanie->information[i].birthdate);
 			fscanf_s(f, "%f", &sozdanie->information[i].salary);
 			printf("|%-7.2f|", sozdanie->information[i].salary);
+			fscanf_s(f, "%c", &sozdanie->information[i].in);
 			printf("\n");
 		}
 

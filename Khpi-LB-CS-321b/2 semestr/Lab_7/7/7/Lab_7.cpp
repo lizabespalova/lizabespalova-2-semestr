@@ -1,6 +1,6 @@
 ﻿#include "7.h"
 #include "struct7.h"
-void Screen(int count, int schet) {
+void Screen() {
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -15,7 +15,7 @@ void Screen(int count, int schet) {
 	}
 	else {
 
-		for (int i = n * count; i < n * count + n;i++)
+		for (int i = 0; i <n;i++)
 		{
 			printf("%d.Введите: фамилию, инициалы, год рождения, оклад>",
 				n + 1);
@@ -42,7 +42,7 @@ void Screen(int count, int schet) {
 			printf("|---------------------------------------------|\n");
 			fprintf(f1, "-----------------------------------------------\n");
 			
-			for (int i = n * count; i < n * count + n;i++) {
+			for (int i = 0; i < n ;i++) {
 				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
 				printf("|%-11s", inf.surname);
 				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
@@ -70,7 +70,7 @@ void Screen(int count, int schet) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Random(int count, int schet) {
+void Random() {
 	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
@@ -85,7 +85,7 @@ void Random(int count, int schet) {
 		exit(0);
 	}
 	else {
-		for (int i = M * count; i < M * count + M;i++)
+		for (int i = 0; i < M;i++)
 		{
 			inf.name = '№';
 			fprintf(f1, "%c", inf.name);
@@ -102,7 +102,7 @@ void Random(int count, int schet) {
 			fprintf(f1, "%hd", inf.birthdate);
 			fprintf(f1, " ");
 			inf.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-			fprintf(f1, "%f", inf.salary);
+			fprintf(f1, "%f\n", inf.salary);
 			
 		}
 		fclose(f1);
@@ -114,7 +114,7 @@ void Random(int count, int schet) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Print(int count, int schet)  {
+void Print()  {
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
@@ -135,8 +135,7 @@ void Print(int count, int schet)  {
 		printf("|---------------------------------------------|\n");
 		printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 		printf("|---------------------------------------------|\n");
-		for (int i = n * count; i < n * count + n;i++) {
-			fscanf_s(f1, "%c", &inf.name);
+		while (fscanf(f1, "%c", &inf.name) != EOF) {
 			printf("|%c", inf.name);
 			fscanf_s(f1, "%d", &inf.numer);
 			printf("%-10d", inf.numer);
@@ -151,7 +150,8 @@ void Print(int count, int schet)  {
 			fscanf_s(f1, "%f", &inf.salary);
 			printf("|%-7.2f|", inf.salary);
 			printf("\n");
-		}
+			fscanf_s(f1, "%c", &inf.name);
+		} 
 
 		printf("|---------------------------------------------|\n");
 		printf("|Приметка:  |---------------------------------|\n");
@@ -168,7 +168,7 @@ void Print(int count, int schet)  {
 	fclose(f1);
 
 }
-void Random3(int count, int schet) {
+void Random3() {
 	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
@@ -183,7 +183,7 @@ void Random3(int count, int schet) {
 		exit(0);
 	}
 	else {
-		for (int i = M * count; i < M * count + M;i++)
+		for (int i = 0; i < M ;i++)
 		{
 			inf.name = '№';
 			fprintf(f1, "%c", inf.name);
@@ -200,8 +200,7 @@ void Random3(int count, int schet) {
 			fprintf(f1, "%hd", inf.birthdate);
 			fprintf(f1, " ");
 			inf.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-			fprintf(f1, "%f", inf.salary);
-
+			fprintf(f1, "%f\n", inf.salary);
 		}
 		fclose(f1);
 	}
@@ -212,7 +211,7 @@ void Random3(int count, int schet) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Random4(int count, int schet) {
+void Random4() {
 	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
@@ -227,7 +226,7 @@ void Random4(int count, int schet) {
 		exit(0);
 	}
 	else {
-		for (int i = M * count; i < M * count + M;i++)
+		for (int i =0; i < M ;i++)
 		{
 			inf.name = '№';
 			fprintf(f1, "%c", inf.name);
@@ -244,7 +243,7 @@ void Random4(int count, int schet) {
 			fprintf(f1, "%hd", inf.birthdate);
 			fprintf(f1, " ");
 			inf.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-			fprintf(f1, "%f", inf.salary);
+			fprintf(f1, "%f\n", inf.salary);
 
 		}
 		fclose(f1);
@@ -256,17 +255,13 @@ void Random4(int count, int schet) {
 	cout << "Имя функции:" << __FUNCTION__ << endl;
 #endif
 }
-void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) {
+void Print5( bool  schetchik_name, bool schetchik_surname) {
 	Data inf;
 #ifdef DEBUG
 	cout << "Сегодняшняя дата:" << __DATE__ << endl;
 	cout << "Сегодняшнее время:" << __TIME__ << endl;
 #endif
-	if (count==0) {
-		cout << "Нет фамилий"<<endl;
-	
-	}
-	else if (schetchik_name == true && schetchik_surname == true) {
+	 if (schetchik_name == true && schetchik_surname == true) {
 		cout << "Разное заполнение файлов. Считывание не будет корректным" << endl;
 	}
 	else{
@@ -285,15 +280,14 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 		fopen_s(&f1, "t.txt", "r+");
 
 		if (f1 == NULL) {
-			puts("Ошибка открытия файла");
+			cout << "Ошибка открытия файла" << endl;
 			exit(0);
 		}
 		else if(schetchik_name==true&& schetchik_surname == false){
 			printf("|-----------------------------------------------|\n");
 			printf("|                   Фамилии                     |\n");
 			printf("|-----------------------------------------------|\n");
-			for (int i = 0; i < n * count; i++) {
-				fscanf_s(f1, "%c", &inf.name);
+			while (fscanf(f1, "%c", &inf.name) != EOF) {
 				printf("|%c", inf.name);
 				fscanf_s(f1, "%d", &inf.numer);
 				printf("%-46d|\n", inf.numer);
@@ -303,6 +297,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				fscanf_s(f1, "%c", &inf.init);
 				fscanf_s(f1, "%hd", &inf.birthdate);
 				fscanf_s(f1, "%f", &inf.salary);
+				fscanf_s(f1, "%c", &inf.in);
 			}
 			printf("|-----------------------------------------------|\n");
 		}
@@ -311,7 +306,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|                   Фамилии                     |\n");
 			printf("|-----------------------------------------------|\n");
 			
-			for (int i = 0; i < n * count; i++) {
+			for (int i = 0; i < n; i++) {
 				fscanf_s(f1, "%s", &inf.surname, sizeof(inf.surname));
 				printf("|%-47s|\n", inf.surname);
 				fscanf_s(f1, "%s", &inf.initials, sizeof(inf.initials));
@@ -336,8 +331,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|                  Инициалы                     |\n");
 			printf("|-----------------------------------------------|\n");
 			
-			for (int i = 0; i < n * count; i++) {
-				fscanf_s(f1, "%c", &inf.name);
+			while (fscanf(f1, "%c", &inf.name) != EOF) {
 				fscanf_s(f1, "%d", &inf.numer);
 				fscanf_s(f1, "%c", &inf.in);
 				fscanf_s(f1, "%c", &inf.in);
@@ -347,7 +341,8 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				printf( "%-46c|\n", inf.init);
 				fscanf_s(f1, "%hd", &inf.birthdate);
 				fscanf_s(f1, "%f", &inf.salary);
-			
+				fscanf_s(f1, "%c", &inf.init);
+				
 			}
 			printf("|-----------------------------------------------|\n");
 			
@@ -357,7 +352,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|                  Инициалы                     |\n");
 			printf("|-----------------------------------------------|\n");
 			
-			for (int i = 0; i < n * count; i++) {
+			for (int i = 0; i < n ; i++) {
 				fscanf_s(f1, "%s", &inf.surname, sizeof(inf.surname));
 				fscanf_s(f1, "%s", &inf.initials, sizeof(inf.initials));
 				printf("|%-47s|\n", inf.initials);
@@ -384,8 +379,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			  printf("|                 Год рождения                  |\n");
 			  printf("|-----------------------------------------------|\n");
 
-			  for (int i = 0; i < n * count; i++) {
-				  fscanf_s(f1, "%c", &inf.name);
+			  while (fscanf(f1, "%c", &inf.name) != EOF) {
 				  fscanf_s(f1, "%d", &inf.numer);
 				  fscanf_s(f1, "%c", &inf.in);
 				  fscanf_s(f1, "%c", &inf.in);
@@ -394,7 +388,8 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				  fscanf_s(f1, "%hd", &inf.birthdate);
 				  printf("|%-47d|\n", inf.birthdate);
 				  fscanf_s(f1, "%f", &inf.salary);
-				  printf("|-----------------------------------------------|\n");
+				  fscanf_s(f1, "%c", &inf.init);
+				
 			  }
 		  }
 			 
@@ -402,15 +397,16 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				  printf("|-----------------------------------------------|\n");
 				  printf("|                 Год рождения                  |\n");
 				  printf("|-----------------------------------------------|\n");
-				  for (int i = 0; i < n * count; i++) {
+				  for (int i = 0; i < n ; i++) {
 					  fscanf_s(f1, "%s", &inf.surname, sizeof(inf.surname));
 					  fscanf_s(f1, "%s", &inf.initials, sizeof(inf.initials));
 					  fscanf_s(f1, "%hd", &inf.birthdate);
 					  printf("|%-47d|\n", inf.birthdate);
 					  fscanf_s(f1, "%f", &inf.salary);
 				  }
-				  printf("|-----------------------------------------------|\n");
+				 
 		  }
+			  printf("|-----------------------------------------------|\n");
 		  fclose(f1);
 		  }
 	else if (otvet == 4) {
@@ -426,8 +422,7 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 		printf("|                     Оклад                     |\n");
 		printf("|-----------------------------------------------|\n");
 
-		for (int i = 0; i < n * count; i++) {
-			fscanf_s(f1, "%c", &inf.name);
+		while (fscanf(f1, "%c", &inf.name) != EOF) {
 			fscanf_s(f1, "%d", &inf.numer);
 			fscanf_s(f1, "%c", &inf.in);
 			fscanf_s(f1, "%c", &inf.in);
@@ -436,8 +431,9 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			fscanf_s(f1, "%hd", &inf.birthdate);
 			fscanf_s(f1, "%f", &inf.salary);
 			printf("|%-47f|\n", inf.salary);
-			printf("|-----------------------------------------------|\n");
+			fscanf_s(f1, "%c", &inf.in);
 		}
+		printf("|-----------------------------------------------|\n");
 	}
 			
 			if (schetchik_surname == true && schetchik_name == false) {
@@ -445,13 +441,14 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				printf("|                     Оклад                     |\n");
 				printf("|-----------------------------------------------|\n");
 
-				for (int i = 0; i < n * count; i++) {
+				for (int i = 0; i < n; i++) {
 					fscanf_s(f1, "%s", &inf.surname, sizeof(inf.surname));
 					fscanf_s(f1, "%s", &inf.initials, sizeof(inf.initials));
 				
 					fscanf_s(f1, "%hd", &inf.birthdate);
 					fscanf_s(f1, "%f", &inf.salary);
 					printf("|%-47f|\n", inf.salary);
+					fscanf_s(f1, "%c", &inf.in);
 					
 				}
 				printf("|-----------------------------------------------|\n");
@@ -463,12 +460,8 @@ void Print5(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
         }
      }
   }
-void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) {
-	
-	if (count == 0) {
-		cout << "Структуры не заполнены"<<endl;
-	}
-	else if (schetchik_name == true && schetchik_surname == true) {
+void Print6( bool  schetchik_name, bool schetchik_surname) {
+	 if (schetchik_name == true && schetchik_surname == true) {
 		cout << "Разное заполнение файлов. Считывание не будет корректным" << endl;
 	}
 	else {
@@ -478,7 +471,7 @@ void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 		fopen_s(&f1, "t.txt", "r+");
 
 		if (f1 == NULL) {
-			puts("Ошибка открытия файла");
+			cout << "Ошибка открытия файла" << endl;
 			exit(0);
 		}
 		else if (schetchik_name == true && schetchik_surname == false) {
@@ -488,8 +481,7 @@ void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			printf("|---------------------------------------------|\n");
 
-			for (int i = 0; i < n * count; i++) {
-				fscanf_s(f1, "%c", &inf.name);
+			while (fscanf(f1, "%c", &inf.name) != EOF) {
 				printf("|%c", inf.name);
 				fscanf_s(f1, "%d", &inf.numer);
 				printf("%-10d", inf.numer);
@@ -503,6 +495,7 @@ void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 				printf("|%-14hd", inf.birthdate);
 				fscanf_s(f1, "%f", &inf.salary);
 				printf("|%-7.2f|", inf.salary);
+				fscanf_s(f1, "%c", &inf.in);
 				printf("\n");
 			}
 			printf("|---------------------------------------------|\n");
@@ -522,7 +515,7 @@ void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			printf("|---------------------------------------------|\n");
 
-			for (int i = 0; i < n * count; i++) {
+			for (int i = 0; i < n ; i++) {
 				fscanf_s(f1, "%s", inf.surname, sizeof(inf.surname));
 				printf("|%-11s", inf.surname);
 				fscanf_s(f1, "%s", inf.initials, sizeof(inf.initials));
@@ -542,6 +535,6 @@ void Print6(int count, bool  schetchik_name, bool schetchik_surname, int schet) 
 			printf("|-----------|---------------------------------|\n");
 
 		}
-
+		fclose(f1);
 	}
  }
