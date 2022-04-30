@@ -13,20 +13,18 @@
 #pragma warning (disable: 4996)
 #define M 3
 struct Data {
-	char surname[15];
-	char initials[5];
 	char name = '¹';
 	int numer;
 	char in;
 	char init;
 	short birthdate;
 	float salary;
-	int mas[100];
+
 	
 };
 struct List {
 	
-	Data information[100];
+	Data information;
 	List* next;
 	
 };

@@ -7,10 +7,9 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	List* head = NULL;
-	List* end = new List;
+	List* head=NULL ;
 	srand(time(NULL));
-	bool insert=false;
+
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;
@@ -26,39 +25,47 @@ int main()
 		int ans;
 		cin >> ans;
 		if (ans == 1) {
-			cout << "Как заполним таблицу" << endl;
-			cout << "(1)Вручную" << endl;
-			cout << "(2)Случайным образом" << endl;
-			int otv;
-			cin >> otv;
-			if (otv == 1) {
-		    head = Sozdaniespiskavvod(head);
-			insert = true;
-			Destvie(head);
-			}
-			if (otv == 2) {
-			head = Sozdaniespiskarand(head);
-			insert = false;
-			}
+			
+			head = Sozdaniespiskarand();
+			
 		}
 			if (ans == 2) {
-			Print(head, insert);
+	 		Print(head);
 			}
 			if (ans == 3) {
-				if (insert == true) {
-					cout << "Поиск работает для рандомных значений" << endl;
-				}
-				else
 				Poisk(head);
 			}
 			if (ans == 4) {
-				Add(head);
+				if (head == NULL) {
+					head = Sozdaniespiskarand();
 				}
+				else {
+					int position;
+					cout << "Введите позицию на которую добавим" << endl;
+					cin >> position;
+					if (position == 1) {
+						List* temp = new List;
+						temp= Sozdaniespiskarand();
+						temp->next = head;
+						head = temp;
+					}
+					else { Insert(head, position);}
+				}
+			}
 			if (ans == 5) {
-			    Delete(head);
+				int position;
+				cout << "Введите позицию на которую добавим" << endl;
+				cin >> position;
+				if (position == 1) {
+					List* temp = head;
+					head = head->next;
+					delete temp;
+				}
+				else { Delete(head, position);}
+				
 			}
 			if (ans == 6) {
-				Sort(head, insert);
+				Sort(head);
 			}
 			if (ans == 7) {
 				Create_v_fail(head);
