@@ -178,12 +178,13 @@ void Delete(List* head, int position) {
 		schetchik++;
 		del = del->next;
 	}
-
-	if (position <=0 || position > schetchik || head->next == NULL) {
+	position--;
+	if (position <0 || position > schetchik || head->next == NULL) {
 		cout << "Вы вышли за пределы списка" << endl;
 		return;
 	}
 	del = head;
+
 	for (int i = 0; i < position - 1; i++)
 	{
 		del = del->next;

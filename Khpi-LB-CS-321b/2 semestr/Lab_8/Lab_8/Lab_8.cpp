@@ -45,16 +45,16 @@ int main()
 					cin >> position;
 					if (position == 1) {
 						List* temp = new List;
-						temp= Sozdaniespiskarand();
+						temp = Sozdaniespiskarand();
 						temp->next = head;
 						head = temp;
 					}
-					else { Insert(head, position);}
+					else { Insert(head, position); }
 				}
 			}
 			if (ans == 5) {
 				int position;
-				cout << "Введите позицию на которую добавим" << endl;
+				cout << "Введите позицию с которой удалим" << endl;
 				cin >> position;
 				if (position == 1) {
 					List* temp = head;

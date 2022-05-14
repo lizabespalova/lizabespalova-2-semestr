@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5ddaaf76-b3a4-4cde-bba7-e0627d51cdf6}</ProjectGuid>
-    <RootNamespace>Lab9</RootNamespace>
+    <ProjectGuid>{8e53f666-80c6-4a08-bb09-2d45ac2f496c}</ProjectGuid>
+    <RootNamespace>Onearmedbandit</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,12 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="9.cpp" />
-    <ClCompile Include="Lab_9.cpp" />
+    <ClCompile Include="func.cpp" />
+    <ClCompile Include="One-armed_bandit.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="9.h" />
-    <ClInclude Include="struct9.h" />
+    <ClInclude Include="func.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
