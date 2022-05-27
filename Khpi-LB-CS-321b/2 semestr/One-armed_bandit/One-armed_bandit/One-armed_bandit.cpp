@@ -4,8 +4,10 @@
 void main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	srand(time(NULL);
 	int result = 0;
 	cout << "Однорукий бандит" << endl;
+	int setansw = 3;
 	while (true) {
 		int *arr= new int[M];
 		int score =0;
@@ -13,7 +15,10 @@ void main() {
 		cout << "(1)Правила игры" << endl;
 		cout << "(2)Вращать барабан" << endl;
 		cout << "(3)Количество очков за все игры" << endl;
-		cout << "(4)Выход" << endl;
+		cout << "(4)Настройки" << endl;
+		cout << "(5)Выбор фрукта" << endl;
+		cout << "(6)Выход" << endl;
+	
 		cin >> answer;
 		switch (answer) {
 		case 1: {
@@ -22,7 +27,7 @@ void main() {
 		}
 		case 2: {
 			system("cls");
-			result += Revolve(arr, score);
+			result += Revolve(arr, score, setansw);
 			break;
 		}
 		case 3: {
@@ -31,6 +36,16 @@ void main() {
 			break;
 		}
 		case 4: {
+			system("cls");
+			setansw=Settings(setansw);
+			break;
+		}
+		case 5: {
+			system("cls");
+			Fruits();
+			break;
+		}
+		case 6: {
 			system("cls");
 			cout << "До свидания!" << endl;
 			exit(0);

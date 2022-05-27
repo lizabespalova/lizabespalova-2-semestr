@@ -131,13 +131,14 @@ void Sort(List* head) {
 
 
 }
-struct List* Insert(List* head, int position, List* tail) {
+struct List* Insert(List* head, int position, List* tail, int* colvo) {
 	List* ins = head;	
 	List* end = head;
 	int schetchik = 0;
 	while (ins) {
 		schetchik++;
 		ins = ins->next;
+		colvo++;
 	}
 	position--;
 	if (position < 0 || position > schetchik) {
@@ -303,7 +304,7 @@ void Sozdanie_s_fail(List* head) {
 		printf("|---------------------------------------------|\n");
 	fclose(f);
 }
-void Print_s_konca(List* head, List*tail) {
+void Print_s_konca(List* head, List*tail, int*colvo) {
 	List* print = tail;
 	if (head == NULL) {
 		cout << "Пусто" << endl;
@@ -315,10 +316,10 @@ void Print_s_konca(List* head, List*tail) {
 			printf("|---------------------------------------------|\n");
 			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			printf("|---------------------------------------------|\n");
-			while (print) {
+			for (print = tail; print!=NULL; print--) {
 				printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
 					print->information.name, print->information.numer, print->information.in, print->information.init, print->information.birthdate, print->information.salary);
-				print = print->prew;
+			/*	print = print->prew;*/
 			}
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");

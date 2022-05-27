@@ -26,6 +26,7 @@ int main()
 		cout << "(10)Создание нового списка из файла" << endl;
 		cout << "(11)Выход из программы" << endl;
 		int ans;
+		int* colvo=NULL;
 		cin >> ans;
 		if (ans == 1) {
 			head = Sozdaniespiskarand(head, tail);
@@ -34,7 +35,7 @@ int main()
 			Print_s_nachalo(head, tail);
 		}
 		if (ans == 3) {
-			Print_s_konca(head, tail);
+			Print_s_konca(head, tail,colvo);
 		}
 		if (ans == 4) {
 			Poisk_s_nachalo(head);
@@ -66,7 +67,7 @@ int main()
 					temp->prew = nullptr;
 				}
 				else { 
-					tail =Insert(head, position, tail);
+					tail =Insert(head, position, tail,colvo);
 				}
 			}
 		}

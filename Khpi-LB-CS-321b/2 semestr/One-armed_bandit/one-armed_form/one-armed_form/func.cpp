@@ -1,4 +1,6 @@
 #include "func.h"
+using namespace System;
+using namespace System::Windows::Forms;
 void Rules() {
 	system("cls");
 	cout << "При нажатии кнопки Enter происходит вращение барабанов" << endl;
