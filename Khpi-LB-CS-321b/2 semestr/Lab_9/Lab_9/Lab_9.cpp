@@ -2,14 +2,14 @@
 //
 
 #include "9.h"
+List* head = nullptr;
+List* tail = nullptr;
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	List* tail = NULL;
-	List* head = NULL;
-
+	
 	srand(time(NULL));
 	while (true)
 	{
@@ -29,13 +29,13 @@ int main()
 		int* colvo=NULL;
 		cin >> ans;
 		if (ans == 1) {
-			head = Sozdaniespiskarand(head, tail);
+			head= Sozdaniespiskarand();
 		}
 		if (ans == 2) {
-			Print_s_nachalo(head, tail);
+			Print_s_nachalo();
 		}
 		if (ans == 3) {
-			Print_s_konca(head, tail,colvo);
+			Print_s_konca();
 		}
 		if (ans == 4) {
 			Poisk_s_nachalo(head);
@@ -45,7 +45,7 @@ int main()
 		}
 		if (ans == 6) {
 			if (head == NULL) {
-				head = Sozdaniespiskarand(head, tail);
+				head= Sozdaniespiskarand();
 			}
 			else {
 				int position;
@@ -67,7 +67,7 @@ int main()
 					temp->prew = nullptr;
 				}
 				else { 
-					tail =Insert(head, position, tail,colvo);
+					Insert(position);
 				}
 			}
 		}

@@ -25,7 +25,6 @@ struct fruits {
 };
 int score = 0;
 int globscore=0;
-int* arr = new int[M];
 int setansw = 3;
 int schet = 0;
 fruits fruit;

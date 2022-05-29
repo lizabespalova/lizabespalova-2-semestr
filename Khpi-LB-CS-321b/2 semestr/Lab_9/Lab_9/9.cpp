@@ -1,16 +1,11 @@
 
 #include "9.h"
-struct List*Sozdaniespiskarand(List*head,List *tail) {
-	List* random = new List;
-	if (head == NULL) {
-		random->prew = NULL;
-		head = tail = random ;
-	}
-	else {
-		tail->next = random;
-		random->prew = tail;
-		tail = random;
-	}
+
+extern List* head, * tail;
+extern int N;
+List * Sozdaniespiskarand() {
+	List* random, * previous;
+	head = previous = random = new List;
 	char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
 	random->information.in = letters[rand() % 10];
 	random->information.init = letters[rand() % 10];
@@ -18,11 +13,13 @@ struct List*Sozdaniespiskarand(List*head,List *tail) {
 	random->information.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
 	random->information.numer = rand() % M;
 	random->information.name = '№';
+	random->prew = NULL;
 	random->next = NULL;
-
+	tail = random;
+	previous->next = NULL;
 	return random;
 }
-void Print_s_nachalo(List* head, List* tail) {
+void Print_s_nachalo() {
 
 	List* print = head;
 	if (head == NULL) {
@@ -131,45 +128,45 @@ void Sort(List* head) {
 
 
 }
-struct List* Insert(List* head, int position, List* tail, int* colvo) {
-	List* ins = head;	
-	List* end = head;
+List *Insert(int position) {
+	List* ins = head;
 	int schetchik = 0;
-	while (ins) {
+	if (head == NULL) {
+		cout << "Список пуст" << endl;
+		return head;
+	}
+	   while (ins) {
 		schetchik++;
-		ins = ins->next;
-		colvo++;
-	}
-	position--;
-	if (position < 0 || position > schetchik) {
-		cout << "Вы вышли за пределы списка" << endl;
-		return(0);
-	}
-	ins = head;
-	for (int i = 0; i < position - 1; i++)
-	{
 		ins = ins->next;
 		
 	}
 	List* temp = new List;
 	
 	char letters[10] = { 'А','Б','В','Д','Н','Е','И','О','С','Р' };
-	temp->information.in = letters[rand() % 10];
-	temp->information.init = letters[rand() % 10];
-	temp->information.birthdate = rand() % 20 + 1956;
-	temp->information.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
-	temp->information.numer = rand() % M;
-	temp->information.name = '№';
-	temp->next = ins->next;
-	ins->next = temp;
-	temp = head;
-	ins = head;
-	while(ins->next){
-		temp->prew = ins;
-		ins = ins->next;
+		temp->information.in = letters[rand() % 10];
+		temp->information.init = letters[rand() % 10];
+		temp->information.birthdate = rand() % 20 + 1956;
+		temp->information.salary = rand() % 219 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (518)));
+		temp->information.numer = rand() % M;
+		temp->information.name = '№';
+	List* current = head;
+	position--;
+	if (position < 0 || position > schetchik) {
+		cout << "Вы вышли за пределы списка" << endl;
+		return head;
 	}
-	tail = temp;
-	return tail;
+	else {
+		for (int i = 0; i < position - 1; i++) {
+			current = current->next;
+		}
+			
+		temp->next = current->next;
+		current->next = temp;
+    	if(temp->next!=nullptr)	temp->next->prew = temp;
+		temp->prew = current;
+	}
+	return head;
+	
 }
 void Delete(List* head, int position) {
 	List* del = head;
@@ -304,22 +301,25 @@ void Sozdanie_s_fail(List* head) {
 		printf("|---------------------------------------------|\n");
 	fclose(f);
 }
-void Print_s_konca(List* head, List*tail, int*colvo) {
-	List* print = tail;
+void Print_s_konca() {
 	if (head == NULL) {
-		cout << "Пусто" << endl;
+		cout << "Список пуст" << endl;
 		return;
 	}
-	else {
+	
+	while (tail->next != NULL) {
+	tail = tail->next;
+	}
+	List* print = tail;
 			printf("-----------------------------------------------\n");
 			printf("|                  Отдел кадров               |\n");
 			printf("|---------------------------------------------|\n");
 			printf("|  Фамилия  | Инициалы | Год рождения | Оклад |\n");
 			printf("|---------------------------------------------|\n");
-			for (print = tail; print!=NULL; print--) {
+			while (print) {
 				printf("|%c%-10d|%c%-9c|%-14hd|%-7.2f|\n",
 					print->information.name, print->information.numer, print->information.in, print->information.init, print->information.birthdate, print->information.salary);
-			/*	print = print->prew;*/
+				print = print->prew;
 			}
 			printf("|---------------------------------------------|\n");
 			printf("|Приметка:  |---------------------------------|\n");
@@ -328,7 +328,7 @@ void Print_s_konca(List* head, List*tail, int*colvo) {
 			printf("|января 2000|---------------------------------|\n");
 			printf("|-----------|---------------------------------|\n");
 	    
-    }
+    
 }
 void Poisk_s_konca(List* head, List*tail) {
 	if (head == NULL) {

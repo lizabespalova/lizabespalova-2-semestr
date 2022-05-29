@@ -165,11 +165,11 @@ namespace onearmedform {
 			this->pictureBox11 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
-			this->Score1 = (gcnew System::Windows::Forms::Label());
 			this->Amount1 = (gcnew System::Windows::Forms::Label());
+			this->Score1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
-			this->Score2 = (gcnew System::Windows::Forms::Label());
 			this->Amount2 = (gcnew System::Windows::Forms::Label());
+			this->Score2 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -197,7 +197,7 @@ namespace onearmedform {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ToolStripMenuItemFile });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(987, 28);
+			this->menuStrip1->Size = System::Drawing::Size(462, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -599,14 +599,6 @@ namespace onearmedform {
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Visible = false;
 			// 
-			// Score1
-			// 
-			this->Score1->Location = System::Drawing::Point(6, 30);
-			this->Score1->Name = L"Score1";
-			this->Score1->Size = System::Drawing::Size(143, 23);
-			this->Score1->TabIndex = 0;
-			this->Score1->Text = L"—чет:";
-			// 
 			// Amount1
 			// 
 			this->Amount1->Location = System::Drawing::Point(370, 24);
@@ -614,6 +606,14 @@ namespace onearmedform {
 			this->Amount1->Size = System::Drawing::Size(42, 23);
 			this->Amount1->TabIndex = 1;
 			this->Amount1->Text = L"0";
+			// 
+			// Score1
+			// 
+			this->Score1->Location = System::Drawing::Point(6, 30);
+			this->Score1->Name = L"Score1";
+			this->Score1->Size = System::Drawing::Size(143, 23);
+			this->Score1->TabIndex = 0;
+			this->Score1->Text = L"—чет:";
 			// 
 			// groupBox7
 			// 
@@ -626,15 +626,6 @@ namespace onearmedform {
 			this->groupBox7->TabStop = false;
 			this->groupBox7->Visible = false;
 			// 
-			// Score2
-			// 
-			this->Score2->Location = System::Drawing::Point(3, 24);
-			this->Score2->Name = L"Score2";
-			this->Score2->Size = System::Drawing::Size(100, 23);
-			this->Score2->TabIndex = 0;
-			this->Score2->Text = L"—чет:";
-			this->Score2->Visible = false;
-			// 
 			// Amount2
 			// 
 			this->Amount2->Location = System::Drawing::Point(343, 27);
@@ -644,12 +635,21 @@ namespace onearmedform {
 			this->Amount2->Text = L"0";
 			this->Amount2->Visible = false;
 			// 
+			// Score2
+			// 
+			this->Score2->Location = System::Drawing::Point(3, 24);
+			this->Score2->Name = L"Score2";
+			this->Score2->Size = System::Drawing::Size(100, 23);
+			this->Score2->TabIndex = 0;
+			this->Score2->Text = L"—чет:";
+			this->Score2->Visible = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->ClientSize = System::Drawing::Size(987, 617);
+			this->ClientSize = System::Drawing::Size(462, 581);
 			this->Controls->Add(this->groupBox7);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->pictureBox12);
